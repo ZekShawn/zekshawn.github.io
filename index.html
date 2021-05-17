@@ -21,11 +21,11 @@
   </script>
 
   <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+<meta property="og:title" content="Zek Shawn">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Zek Shawn">
 <meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="Zek Shawn">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/">
@@ -41,7 +41,7 @@
   };
 </script>
 
-  <title>Hexo</title>
+  <title>Zek Shawn</title>
   
 
 
@@ -92,7 +92,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">Zek Shawn</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -111,6 +111,21 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -149,12 +164,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Zek Shawn">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Zek Shawn">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -170,7 +185,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-05-17 11:51:13 / Modified: 11:55:10" itemprop="dateCreated datePublished" datetime="2021-05-17T11:51:13+08:00">2021-05-17</time>
+              <time title="Created: 2021-05-17 11:51:13 / Modified: 12:55:38" itemprop="dateCreated datePublished" datetime="2021-05-17T11:51:13+08:00">2021-05-17</time>
             </span>
 
           
@@ -185,31 +200,14 @@
 
       
           <p><img src="https://pic1.zhimg.com/v2-e8fb49b7dc141a58809c6db476d1c137_1440w.jpg?source=172ae18b"></p>
-<h2 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h2><p>什么是数据挖掘？<br>维基百科的解释如下：<br>数据挖掘是一个跨学科的计算机科学分支 。它是用人工智能、机器学习、统计学和数据库的交叉方法在相对较大型的数据集中发现模式的计算过程。 数据挖掘过程的总体目标是从一个数据集中提取信息，并将其转换成可理解的结构，以进一步使用。<br>简单来说，就是提取数据模式，用以理解利用。所以，它并不是我们直观理解的爬数据，数据挖掘“挖”的不是数据本身，而是隐含在数据内的东西。<br>举个例子，申请银行贷款的时候我们需要填一堆信息，等待一段时间才能知道是否能申请成功。这是因为，银行要对我们的信息进行审核，确保我们会在协议规定的日期内还款，以保证银行的正常运转（这里夸张了，一个人一般情况下是影响不到银行的运转的）。<br>那么，如何从你的数据中挖掘到“是否能且愿意准时还款”，就是一个很值得研究的问题。在这个研究过程中，并不限于方法，像是人工智能、机器学习、算法预测等，只要通过你填写的简单资料（虽然我们填写了很多资料，但对于判断是否能准时还款来说，信息量还是太少），就能判断是否给你贷款。这对于银行来说，就是巨大的价值。</p>
-<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>什么是数据预处理？<br>对于人工智能、机器学习来说，数据永远是最重要的。数据决定你的预测模型的上限，优秀的算法跟模型只是接近上限的方法。这句话一点也没说错。<br>拿非常古老也是应用的最好的领域，银行信贷来说。数据的年限、周期、完整度等都很关键，如预测2021年的某个人是否可信，那么我们绝不可能拿2010年的数据去做模式匹配。因为这时间相差过大，因为通货膨胀，金钱的价值不可同等比较（例如工资和贷款金额、贷款利率、住房价值等等）。那么拿2020年的数据如何？事实上也不好，因为2020年的数据意味着客户还没有还款达到一定的周期，无法判断一个客户是优质的愿意还款的客户还是容易违约的客户。因此，我们需要找那些贷款不久，但又有一定还款周期的客户数据拿来训练做模式匹配。<br>当然，上面的这些还是太过于大概，只是用于我自己做一个知识梳理。接下来将会讲述一般情形下，如何做数据的预处理，这对模型的效果有关键性影响。这些都是数据层面上，上面所提到的都是数据在收集层面的。</p>
-<h2 id="对于分类型数据"><a href="#对于分类型数据" class="headerlink" title="对于分类型数据"></a>对于分类型数据</h2><p>什么是分类型数据？<br>分类型就是，选择形式的数据。如，你是否已婚？银行通常在调查表上会给几个选项，如未婚、已婚、保密等。这类信息没有明确的数值，也无法直接简单使用数值进行代替（关于为什么稍后再说）。成为分类型数据，那么对于分类型数据，有哪些需要注意的点呢？</p>
-<ul>
-<li>缺失值大于50%，则删除该属性。小于50%，可以采用各种填充方式，如中位数、人工、众数、单独归类。</li>
-<li>如果分类属性两个取值对应的oods（ p /（1-p），p 是坏客户的概率）相同，如果分类属性只有两个取值，则删除该变量，否则合并为一类。</li>
-<li>如果取某个值的对象数量占比小于5%，那么把该取值对应的对象划分到与该取值的oods最接近的一个类别去。直到每一个类别对象占比不少于5%。</li>
-<li>如果某个取值的对象数量大于90%，则删除该属性。</li>
-</ul>
-<p>上述规则是比较基础的，简单的几条处理规则。一般来说，经过上述的处理之后，数据算是合格了。</p>
-<h2 id="对于数值型数据"><a href="#对于数值型数据" class="headerlink" title="对于数值型数据"></a>对于数值型数据</h2><p>什么是数值型数据？<br>我想，你在信用卡的申请表上肯定看到过工资的填写格。那就是数值型数据，它是连续数据。对于连续数据，如果要想用机器学习的办法进行处理，进行模式匹配，是比较难的，或者说需要的数据量是比较大的（原因是我自己分析的，但的确转换后会有好处）。最好转换为离散分类型数据。<br>那么对于数值型数据，有哪些需要处理的？或者说一般的处理规则是什么样的？</p>
-<ul>
-<li>缺失比例大于70%，删除变量；小于，则采用平均值、最小、最大、预测或单独归类；</li>
-<li>离散化数据，有等宽、等频、K均值、监督方法、卡方离散化、基于熵的离散化；</li>
-</ul>
-<p>上面就是数值型数据需要注意的点。第二点中，数据的离散化，指的是将数据进行分组。其中等宽很好理解，区间的宽度相等。等频指的是，每一组的频数相等，换句话说，均匀将数据分组。值得注意的是，必须得保证数据是从小到大，连续分组，不跳跃。</p>
-<h2 id="数据处理的例子"><a href="#数据处理的例子" class="headerlink" title="数据处理的例子"></a>数据处理的例子</h2><p>如果你跟我一样，有去蹭一门叫做数据挖掘的课。那么你会有一个银行信用评分的例子，可供练手。</p>
-<p>这里给我的（又臭又长的）代码以供参考，当然，我劝在座的各位，写代码一定不要像我一样，写成这样冗长的可读性极差的。</p>
-<p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103082111559494045.png"></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入数据处理包</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据读取</span></span><br><span class="line">data = pd.read_csv(<span class="string">&quot;Credit.csv&quot;</span>)</span><br><span class="line">rows = data.shape[<span class="number">0</span>]</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
-<p>剩下的代码因为格式问题，复制过来很难看。附上图片以及代码源文件，建议使用Jupyter编写以及查看此类代码。</p>
-<p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103082152526813737.png"></p>
-<p><a target="_blank" rel="noopener" href="https://disk.zeksay.cn/#s/6wtX0CxQ" title="Jupyter Notebook源文件">Jupyter Notebook源文件</a><br>访问密码：hQFN6</p>
-<p><a target="_blank" rel="noopener" href="https://disk.zeksay.cn/#s/6wtYhslQ" title="Python源文件，可用VSCode、PyCharm及文本编辑器打开">Python源文件，可用VSCode、PyCharm及文本编辑器打开</a><br>访问密码：fH66l</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/17/%E5%81%9A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%861/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -232,12 +230,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Zek Shawn">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Zek Shawn">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -253,7 +251,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-05-17 11:51:03 / Modified: 11:54:35" itemprop="dateCreated datePublished" datetime="2021-05-17T11:51:03+08:00">2021-05-17</time>
+              <time title="Created: 2021-05-17 11:51:03 / Modified: 12:55:34" itemprop="dateCreated datePublished" datetime="2021-05-17T11:51:03+08:00">2021-05-17</time>
             </span>
 
           
@@ -270,17 +268,14 @@
           <p>最近总是容易一刷视频就停不下来，然而刷完之后发现什么也没有留在脑海里。仿佛是水一般，从肚子里流过，什么也不带走。</p>
 <p>但，</p>
 <p>留下了焦虑。</p>
-<h2 id="什么是「低级快乐」？"><a href="#什么是「低级快乐」？" class="headerlink" title="什么是「低级快乐」？"></a>什么是「低级快乐」？</h2><p>我很难给这样的事情下一个定义，因为这只是我一家之言。但我可以讲我的经历，以做警醒。</p>
-<p>过程是这样的，经常定好任务，看文章或是写一些程序，复习一些课程内容。但一打开文档，打开作业，打开课程通知，开始艰难地看的时候。如果突然来了一个通知，拿起手机，「B站」刷一会，「微信文章」看一会，「远景」逛一会，「QQ」群消息刷一遍，水水群，终于感觉新鲜事都看了一遍之后，我的时间也消耗的差不多了。</p>
-<p>于是暗暗给自己打气，立下flag，下午，下午一定把文章看了。等到了下午，开始看文章。哎呀，好枯燥，加点音乐吧，打开「QQ音乐」，开始看文章。不过十分钟，哎呀，音乐好躁啊，关掉吧。于是暂停播放。五分钟后，哎呀，要不然找点舒缓的音乐听吧。找完音乐，哎呀，群里肯定有新鲜有趣的事情发生了。逛逛QQ群，各种吃瓜，开心地吃完瓜心满意足地离开之后，哎呀，该吃饭了。</p>
-<p>这就像是一种魔障，几乎每一天都是这么过的，各种各样的诱惑从互联网出来。</p>
-<p>这种陷阱并不是不可察觉，只是会不经意让你不愿意脱离，且这样状态下面的学习效率是非常低的。即使在这样的状态下面完成了学习任务，其成效有几分也很难说。</p>
-<p>上面这种各种软件中的事情我称之为「低级快乐」，它容易吸引人，并给你短暂快乐。为获得这种快乐，你就必须持续不断找到这种低级快乐，因而「潜意识」拒绝学习，等你成功脱身，时间也就差不多没了。</p>
-<p>非常狠的一点是，它还有瘾，隔一段时间发作一次。这使得我们越来越容易被这些东西吸引，效率越发低下。非常难缠的是，这几乎很难被摆脱，即使你清楚地认知到这一点。</p>
-<h2 id="如何「戒掉」低级快乐"><a href="#如何「戒掉」低级快乐" class="headerlink" title="如何「戒掉」低级快乐"></a>如何「戒掉」低级快乐</h2><p>最好的办法不过是时时刻刻提醒自己，这会浪费自己的时间，这会让自己丢工作，丢掉很多好机会。但效用如何，仍然取决于你对「它」的认知程度。</p>
-<p>我也是它的受害者，手下败将。我当然知道，「它」就是我自己，但认知跟如何做到真的不是一回事。</p>
-<p>且在这里记下，争斗或者是负隅顽抗的一个间隔之中，我自己的一点点思考。如果有一天，你在街上看到一个乞讨的人，天天叨叨着「快乐」，请给他两枚硬币，因为他，真的很需要。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/17/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E9%99%B7%E5%85%A5%E3%80%8C%E4%BD%8E%E7%BA%A7%E5%BF%AB%E4%B9%90%E3%80%8D%E7%9A%84%E6%80%AA%E5%9C%88%EF%BC%9F/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -303,12 +298,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Zek Shawn">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Zek Shawn">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -324,7 +319,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-05-17 11:50:54 / Modified: 11:54:13" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:54+08:00">2021-05-17</time>
+              <time title="Created: 2021-05-17 11:50:54 / Modified: 13:03:51" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:54+08:00">2021-05-17</time>
             </span>
 
           
@@ -338,133 +333,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="1-Python如何定义链表？"><a href="#1-Python如何定义链表？" class="headerlink" title="1. Python如何定义链表？"></a>1. Python如何定义链表？</h2><p>首先定义一个节点：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        self.item = item</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
-<p>其次，链表分为了单链表与循环链表，具体解释可参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60057180" title="文章">文章</a>。</p>
-<p>单链表定义形式为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkList</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self._head = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
-<p>其使用形式为：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    link_list = SingleLinkList()</span><br><span class="line"></span><br><span class="line">    node1 = Node(<span class="number">1</span>)</span><br><span class="line">    node2 = Node(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    link_list._head = node1</span><br><span class="line">    node1.<span class="built_in">next</span> = node2</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(link_list._head.item)</span><br><span class="line">    <span class="built_in">print</span>(link_list._head.<span class="built_in">next</span>.item)</span><br></pre></td></tr></table></figure>
-<p>可以看到，其使用非常简单。基本就是值加上一个指往下一个节点的指针。链表的定义比较麻烦，如果要实现比较便捷的添加、删除、更改的话，需要自己手动定义上述方法。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkList</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;单链表&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self._head = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;判断链表是否为空&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> self._head <span class="keyword">is</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">length</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;链表长度&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 初始指针指向head</span></span><br><span class="line">        cur = self._head</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 指针指向None 表示到达尾部</span></span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            <span class="comment"># 指针下移</span></span><br><span class="line">            cur = cur.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">items</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;遍历链表&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 获取head指针</span></span><br><span class="line">        cur = self._head</span><br><span class="line">        <span class="comment"># 循环遍历</span></span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 返回生成器</span></span><br><span class="line">            <span class="keyword">yield</span> cur.item</span><br><span class="line">            <span class="comment"># 指针下移</span></span><br><span class="line">            cur = cur.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;向链表头部添加元素&quot;&quot;&quot;</span></span><br><span class="line">        node = Node(item)</span><br><span class="line">        <span class="comment"># 新结点指针指向原头部结点</span></span><br><span class="line">        node.<span class="built_in">next</span> = self._head</span><br><span class="line">        <span class="comment"># 头部结点指针修改为新结点</span></span><br><span class="line">        self._head = node</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">append</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;尾部添加元素&quot;&quot;&quot;</span></span><br><span class="line">        node = Node(item)</span><br><span class="line">        <span class="comment"># 先判断是否为空链表</span></span><br><span class="line">        <span class="keyword">if</span> self.is_empty():</span><br><span class="line">            <span class="comment"># 空链表，_head 指向新结点</span></span><br><span class="line">            self._head = node</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 不是空链表，则找到尾部，将尾部next结点指向新结点</span></span><br><span class="line">            cur = self._head</span><br><span class="line">            <span class="keyword">while</span> cur.<span class="built_in">next</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                cur = cur.<span class="built_in">next</span></span><br><span class="line">            cur.<span class="built_in">next</span> = node</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span>(<span class="params">self, index, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;指定位置插入元素&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 指定位置在第一个元素之前，在头部插入</span></span><br><span class="line">        <span class="keyword">if</span> index &lt;= <span class="number">0</span>:</span><br><span class="line">            self.add(item)</span><br><span class="line">        <span class="comment"># 指定位置超过尾部，在尾部插入</span></span><br><span class="line">        <span class="keyword">elif</span> index &gt; (self.length() - <span class="number">1</span>):</span><br><span class="line">            self.append(item)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 创建元素结点</span></span><br><span class="line">            node = Node(item)</span><br><span class="line">            cur = self._head</span><br><span class="line">            <span class="comment"># 循环到需要插入的位置</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(index - <span class="number">1</span>):</span><br><span class="line">                cur = cur.<span class="built_in">next</span></span><br><span class="line">            node.<span class="built_in">next</span> = cur.<span class="built_in">next</span></span><br><span class="line">            cur.<span class="built_in">next</span> = node</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;删除节点&quot;&quot;&quot;</span></span><br><span class="line">        cur = self._head</span><br><span class="line">        pre = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 找到指定元素</span></span><br><span class="line">            <span class="keyword">if</span> cur.item == item:</span><br><span class="line">                <span class="comment"># 如果第一个就是删除的节点</span></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> pre:</span><br><span class="line">                    <span class="comment"># 将头指针指向头节点的后一个节点</span></span><br><span class="line">                    self._head = cur.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="comment"># 将删除位置前一个节点的next指向删除位置的后一个节点</span></span><br><span class="line">                    pre.<span class="built_in">next</span> = cur.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 继续按链表后移节点</span></span><br><span class="line">                pre = cur</span><br><span class="line">                cur = cur.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;查找元素是否存在&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> item <span class="keyword">in</span> self.items()</span><br></pre></td></tr></table></figure>
-<p>还有循环链表，这里就不一一展示了。</p>
-<h2 id="2-实操-LeetCode经典题，两数相加"><a href="#2-实操-LeetCode经典题，两数相加" class="headerlink" title="2. 实操 - LeetCode经典题，两数相加"></a>2. 实操 - LeetCode经典题，两数相加</h2><p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091314557183126.png"></p>
-<p>基本的思路有两条，第一种思路：</p>
-<ul>
-<li>将两个链表存储的数取出，连接成字符串，取反之后，使用int强行转换为数字；</li>
-<li>将转换的数字相加，得到结果数字，填入新的链表，并强行转换为int类型；</li>
-</ul>
-<p>第二种思路：</p>
-<ul>
-<li>将链表补齐（两个初始链表的长度可能不一），在末尾加0。</li>
-<li>从链表的head到末尾，依次对应相加，与10取余放在新的链表对应位。除数进位到下一个位置与链表对应值相加。</li>
-</ul>
-<p>从思路上来说，第一种思路相对而言，比较容易想到，也比较容易操作。但可惜的是，会超时。因为至少需要三个循环，比较费时间。</p>
-<p>第二种的解题代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addTwoNumbers</span>(<span class="params">self, l1: ListNode, l2: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        head = sumNode = ListNode()</span><br><span class="line">        val = carry = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> (l1 <span class="keyword">or</span> l2):</span><br><span class="line">            val = carry</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> l1: l1, val = l1.<span class="built_in">next</span>, l1.val + val</span><br><span class="line">            <span class="keyword">if</span> l2: l2, val = l2.<span class="built_in">next</span>, l2.val + val</span><br><span class="line"></span><br><span class="line">            carry, val = <span class="built_in">divmod</span>(val,<span class="number">10</span>)</span><br><span class="line">            sumNode.<span class="built_in">next</span> = ListNode(val)</span><br><span class="line">            sumNode = sumNode.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> head.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="3-Python-小练习-LeetCode经典题-最长回文子串"><a href="#3-Python-小练习-LeetCode经典题-最长回文子串" class="headerlink" title="3. Python 小练习 - LeetCode经典题 最长回文子串"></a>3. Python 小练习 - LeetCode经典题 最长回文子串</h2><p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091322152410215.png"><br>这是一个看起来貌似简单的题目。但它的要点不在于如何实现题目要求，找到正确的字符串，而是如何节省时间。</p>
-<p>回文字符串的判定实现很简单，只需要判断字符串的前半部分是否与字符串的后半部分的镜像字符串相等即可。</p>
-<p>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">len</span>(s)-index)%<span class="number">2</span>==<span class="number">0</span>: af = (<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index</span><br><span class="line">                    <span class="keyword">else</span>: af = (<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index+<span class="number">1</span></span><br><span class="line">                    <span class="keyword">if</span> s[index:(<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index] == s[af:][::-<span class="number">1</span>]:</span><br></pre></td></tr></table></figure>
-<p>但是，可以预见，如果从第一个字符开始找起，匹配每一种可能，需要的时间是巨量的。</p>
-<p>因此，我们尝试贪心。即，从第一个字符开始，查找字符串中最后出现的它的位置。找到之后，查看它们圈起来的子字符串是否是回文。如若不是，删去后面的部分，继续重复查找。</p>
-<p>这样只要内外两层循环，内存循环还可以借由已经找到的较长字符串来进行筛选节省时间。完整代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span></span><br><span class="line">        </span><br><span class="line">        maxstring,maxcount =  s[<span class="number">0</span>],<span class="number">1</span></span><br><span class="line">        temp_s = s</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(temp_s) &gt;<span class="number">0</span>:</span><br><span class="line">            s = temp_s</span><br><span class="line">            <span class="keyword">while</span> <span class="built_in">len</span>(s) &gt; <span class="number">0</span>:</span><br><span class="line">                s = s[::-<span class="number">1</span>]</span><br><span class="line">                index = s.index(s[-<span class="number">1</span>])</span><br><span class="line">                <span class="keyword">if</span> maxcount &lt; (<span class="built_in">len</span>(s)-index):</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">len</span>(s)-index)%<span class="number">2</span>==<span class="number">0</span>: af = (<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index</span><br><span class="line">                    <span class="keyword">else</span>: af = (<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index+<span class="number">1</span></span><br><span class="line">                    <span class="keyword">if</span> s[index:(<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index] == s[af:][::-<span class="number">1</span>]:</span><br><span class="line">                        maxstring = s[index:][::-<span class="number">1</span>]</span><br><span class="line">                        maxcount = <span class="built_in">len</span>(maxstring)</span><br><span class="line">                s = s[index+<span class="number">1</span>:]</span><br><span class="line">                s = s[::-<span class="number">1</span>]</span><br><span class="line">            temp_s = temp_s[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">return</span> maxstring</span><br></pre></td></tr></table></figure>
-
-<p>Java中的链表是怎么样定义的，不太清楚。但依照着前面Python的思路，可以快捷写出下面的代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode curr = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode head = curr;</span><br><span class="line">        <span class="keyword">int</span> val=<span class="number">0</span>,carry=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (l1!=<span class="keyword">null</span> || l2!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            val = carry;</span><br><span class="line">            <span class="keyword">if</span> (l1!=<span class="keyword">null</span>)&#123;val+=l1.val;&#125;</span><br><span class="line">            <span class="keyword">if</span> (l2!=<span class="keyword">null</span>)&#123;val+=l2.val;&#125;</span><br><span class="line">            carry = (<span class="keyword">int</span>)(val/<span class="number">10</span>);</span><br><span class="line">            val = (<span class="keyword">int</span>)(val%<span class="number">10</span>);</span><br><span class="line">            curr.next = <span class="keyword">new</span> ListNode(val);</span><br><span class="line">            curr = curr.next;</span><br><span class="line">            <span class="keyword">if</span> (l1!=<span class="keyword">null</span>&amp;&amp;l1.next!=<span class="keyword">null</span>)&#123;l1=l1.next;&#125;<span class="keyword">else</span>&#123;l1=<span class="keyword">null</span>;&#125;</span><br><span class="line">            <span class="keyword">if</span> (l2!=<span class="keyword">null</span>&amp;&amp;l2.next!=<span class="keyword">null</span>)&#123;l2=l2.next;&#125;<span class="keyword">else</span>&#123;l2=<span class="keyword">null</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry&gt;<span class="number">0</span>)&#123;curr.next = <span class="keyword">new</span> ListNode(carry);curr=curr.next;&#125;</span><br><span class="line">        <span class="keyword">return</span> head.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-编程语言之间的效率"><a href="#4-编程语言之间的效率" class="headerlink" title="4. 编程语言之间的效率"></a>4. 编程语言之间的效率</h2><blockquote>
-<p>之前从来没有注意过这种问题，总觉得效率无所谓。可能是因为我主要用的是Python吧，为了方便，包容性总是强一点。但是今天使用Java提交一次代码之后，惊了，效率竟然高这么多。简直离谱，我决定以后都使用Java去写这类逻辑性比较强的数字运算代码。</p>
-</blockquote>
-<h3 id="4-1-Python："><a href="#4-1-Python：" class="headerlink" title="4.1 Python："></a>4.1 Python：</h3><p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091550478165834.png" alt="Python运算速度" title="Python运算速度"></p>
-<h3 id="4-2-Java："><a href="#4-2-Java：" class="headerlink" title="4.2 Java："></a>4.2 Java：</h3><p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091551344537737.png" alt="Java运算速度" title="Java运算速度"></p>
-<p>有人可能怀疑我这只有一个人提交了Java，那么放上下面的内存排名图你就知道，上面的时间只是因为坐标轴的缩放原因，看起来只有我一个人提交。</p>
-<p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091551496422650.png" alt="Java内存消耗" title="Java内存消耗"></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/17/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/05/17/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">个人简介</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2021-05-17 11:50:47 / Modified: 11:53:46" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:47+08:00">2021-05-17</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="1-教育背景"><a href="#1-教育背景" class="headerlink" title="1. 教育背景"></a>1. 教育背景</h2><p>2016-2020年:<br>本科就读于湖南大学机械与运载工程学院，工业工程专业。<br>2020-至今<br>研究生就读于南京大学工程管理学院，工业工程与管理。</p>
-<h2 id="2-知识体系"><a href="#2-知识体系" class="headerlink" title="2. 知识体系"></a>2. 知识体系</h2><h3 id="2-1-本科所学"><a href="#2-1-本科所学" class="headerlink" title="2.1 本科所学"></a>2.1 本科所学</h3><p>本科学习了设施选址与布局、工业工程基本优化方法、过程质量控制与设计质量控制、产线布局仿真与优化、运筹学线性模型基本求解方法。</p>
-<p>本科所学不成体系的知识有C语言、ACM选修、数据库理论知识、Python数据处理。</p>
-<p>当然，还有些数理基础课程这里就不介绍了，如高数、概率论、线性代数等。</p>
-<h3 id="2-2-研究生所学"><a href="#2-2-研究生所学" class="headerlink" title="2.2 研究生所学"></a>2.2 研究生所学</h3><p>研究生阶段学了多元统计的拟合与方差分析、行为效用相关知识、博弈论经典模型，自己感兴趣并且成体系的有深度强化学习，进一步自学Python，学习物流优化领域的基本算法，领域搜索、Local Search等。</p>
-<h2 id="3-目前在学及意向方向"><a href="#3-目前在学及意向方向" class="headerlink" title="3. 目前在学及意向方向"></a>3. 目前在学及意向方向</h2><h3 id="3-1-数据分析"><a href="#3-1-数据分析" class="headerlink" title="3.1 数据分析"></a>3.1 数据分析</h3><p>必备知识储备有：Python要求熟练，MySQL熟练，AI常见算法，具有产品思维。</p>
-<p>进阶：MySQL操作原理、Python进阶技巧、AI新兴算法、产品思维强化训练。</p>
-<p>在学：Python进阶，AI新兴算法，产品思维，MySQL操作。</p>
-<h3 id="3-2-运筹优化算法"><a href="#3-2-运筹优化算法" class="headerlink" title="3.2 运筹优化算法"></a>3.2 运筹优化算法</h3><p>必须掌握：传统离散优化算法原理及实现，Java或C++；</p>
-<p>进阶：设计优化算法，深入了解算法原理，熟练利用编程语言的特性提高代码运行速度。</p>
-<p>在学：物流优化算法课程学习、C++文献算法实现；</p>
-<h3 id="3-3-强化学习方向"><a href="#3-3-强化学习方向" class="headerlink" title="3.3 强化学习方向"></a>3.3 强化学习方向</h3><p>必备知识储备：深度学习框架PyTorch或Tensorflow，经典强化学习算法的原理与实现；</p>
-<p>进阶：优化已有强化学习算法，熟悉分布式RL，熟悉迁移式强化学习。</p>
-<p>在学：深入PyTorch原理、优化已有强化学习算法，初学分布式RL。</p>
-<h3 id="3-4-目前熟练程度"><a href="#3-4-目前熟练程度" class="headerlink" title="3.4 目前熟练程度"></a>3.4 目前熟练程度</h3><p>Python可以使用pandas、numpy熟练处理Excel数据，matplotlib可画各类图表，可熟练爬取一些反爬技术简单的网站，如shixiseng、tencent video等。</p>
-<p>Java可实现运筹优化算法，尚未深入了解Java语法原理，C++同Java进度。</p>
-<p>语言类学习结合语法学习与LeetCode刷题进行。刷题笔记部分开始记录在zeksay.cn。</p>
-<p>PyTorch复现论文中各类经典强化算法无压力，算法原理深入不足，Torch的了解深度不足。</p>
-<p>物流优化算法正在结合课程学习，数据挖掘正在结合课程学习。</p>
-<h3 id="3-5-直观了解掌握水平"><a href="#3-5-直观了解掌握水平" class="headerlink" title="3.5 直观了解掌握水平"></a>3.5 直观了解掌握水平</h3><p>强化学习：Maze Navigation任务下，PG、QL、AC、DDPG的实现，Mujoco环境表现不算太好。</p>
-<p>Python：可简单爬取腾讯视频信息，批量分析PDF文档提取对应信息【本科课程期末考核】，自动发送邮件。</p>
-<p>其他杂项：Matlab制作过一个带界面的App，实现遗传算法的计算。VB制作过一个独立的小软件计算MRP，本科课设。</p>
-<p>LeetCode刷题进展：目前仅20+题，困难2，中等10，简单13。</p>
-<h2 id="自我总结"><a href="#自我总结" class="headerlink" title="自我总结"></a>自我总结</h2><p>目前还是互联网领域菜鸡一个，算法原理与数理统计知识均薄弱，语言原理也比较缺失。</p>
-
+          <p>其实这里只有Java跟Python，改天用C++试试。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/17/%E9%93%BE%E8%A1%A8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -487,12 +364,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Zek Shawn">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Zek Shawn">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -508,7 +385,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-05-17 11:50:38 / Modified: 11:53:21" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:38+08:00">2021-05-17</time>
+              <time title="Created: 2021-05-17 11:50:38 / Modified: 13:03:30" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:38+08:00">2021-05-17</time>
             </span>
 
           
@@ -523,50 +400,16 @@
 
       
           <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Learn</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            System.out.println(<span class="string">&quot;Study Hard.&quot;</span>);</span><br><span class="line">        <span class="keyword">catch</span>:</span><br><span class="line">            System.exit(-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="1-扯点闲话"><a href="#1-扯点闲话" class="headerlink" title="1. 扯点闲话"></a>1. 扯点闲话</h2><p>有时候也会想，像我这样半路入行的，该怎么快速立足。能够在几个月后找到一份实习，想来想去也没想好到底怎么才能做到。</p>
-<p>索性不去想了，找一个朋友一块，定期运动，其余的时间自己一个人学一学，不行了就在网站上吐槽一下，再来这个博客写些文章。</p>
-<p><del>这样也好像不太好，一个记录学习打卡的网站倒成了一个吐槽垃圾站。</del></p>
-<h2 id="2-进入正题"><a href="#2-进入正题" class="headerlink" title="2. 进入正题"></a>2. 进入正题</h2><p>闲话少说，私货少夹带。进入正题，该如何规划自己的学习路径？</p>
-<h3 id="2-1-刷题，编程语言熟练度"><a href="#2-1-刷题，编程语言熟练度" class="headerlink" title="2.1 刷题，编程语言熟练度"></a>2.1 刷题，编程语言熟练度</h3><p>假如我要进入「强化学习」的领域，首先按照招聘要求，我需要精通一门语言。怎么算是精通呢？好在这个问题不用我担心，只要刷题就好。比如LeetCode的普通题，刷到至少200，以及剑斩Offer和企业考核题，都是起码两遍往上。</p>
-<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/">LeetCode主站，一起来刷题呀～有MySQL的题嗷，学数分的小伙伴一块吧。</a></p>
-<p><a target="_blank" rel="noopener" href="https://zeksay.cn/?id=42">这里是我的刷题笔记记录的地方，有兴趣可以去看看～</a></p>
-<h3 id="2-2-论文，解锁领域基本算法"><a href="#2-2-论文，解锁领域基本算法" class="headerlink" title="2.2 论文，解锁领域基本算法"></a>2.2 论文，解锁领域基本算法</h3><p>这就是硬骨头了，得花很多时间去看领域内的论文，至少基础的相关算法得清楚，这部分好在找到了一个学习路径的参考。要学的基本也都清楚了，像是PG、QL、DQL、AC、A2C、DDPG、PPO、TRPO以及一些其他的前沿论文。</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/thu-ml/tianshou">论文参考下载</a></p>
-<p>这些论文我都已经通过大佬的指点，找到了文章，接下来要花的就是时间以及精力了。</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104224859">优质课程以及资料</a></p>
-<h3 id="2-3-框架，算法得实现才有用武之地"><a href="#2-3-框架，算法得实现才有用武之地" class="headerlink" title="2.3 框架，算法得实现才有用武之地"></a>2.3 框架，算法得实现才有用武之地</h3><p>强化学习很依赖「神经网络」，也就是很需要实战能力，懂框架的理论知识是很重要的，但如果无法快速实现，那么真的一点用也没有。所以我要做的就是将上面论文里头的算法给复现就好，虽然我觉得挑战很大。</p>
-<p>这里就没有链接了，但是主流框架有两种，PyTorch以及TensorFlow，虽然业界应用的比较广，也比较稳定的是tensroflow，但是我觉得Torch简单易上手，加上传闻的Tensorflow API混乱的问题，加上业界大公司都在改造做自己的tensroflow框架，我还是学torch吧。</p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/350445991">关于tensorflow与torch的讨论。</a></p>
-<h3 id="2-4-实战，应用到实际问题"><a href="#2-4-实战，应用到实际问题" class="headerlink" title="2.4 实战，应用到实际问题"></a>2.4 实战，应用到实际问题</h3><p>这一部分大概也是最重要的，最终目标。如果可以，去做做比赛，将模型实际地用一用。这样一是不仅局限于那些游戏benchmark，二是可以发现很多以游戏为目标的时候发现不了的问题，毕竟实际生活问题还是很复杂，很需要转换思维的。</p>
-<p>啊，说起来，这个我好希望能有大佬带我做比赛啊，我可以不水的，求求大佬把我带去吧。。。</p>
-<p>要实战的另一个目的也是为了能找实习的时候成为简历上的一块砖，敲开面试的大门。就算受伤到进不去，至少我可以有一定的概率进去看看风光。啊，我tm在说什么，算了，洗洗睡了。</p>
-<h2 id="3-调整心情，调整状态"><a href="#3-调整心情，调整状态" class="headerlink" title="3. 调整心情，调整状态"></a>3. 调整心情，调整状态</h2><p>我觉得在学习的过程中，能把自己的心态跟身体状态都调整好，绝对事半功倍。所以，再次呼吁小伙伴们，带我锻炼吧，我很菜的，可以衬托你，我还不帅，不高，没钱，不觉得我是个完美的伴嘛。。。</p>
-<h2 id="4-大佬建议"><a href="#4-大佬建议" class="headerlink" title="4. 大佬建议"></a>4. 大佬建议</h2><p>问：</p>
-<ol>
-<li><p>除了那些著名的算法，如PPO、PG、AC、DQN、DDQG及所有在天授项目中提到的paper，还应该看些什么？overfitting相关的？亦或者其他的？</p>
-</li>
-<li><p>是否也像是其他的领域一般，需要对Linux比较熟悉？</p>
-</li>
-<li><p>除了看完第1条所提到的论文之外，我还需要学些什么？Java或者Python的基础语法？MySQL？</p>
-</li>
-</ol>
-<p>以上基于我目前研一，已学Python、Java，每天在LeetCode刷题，南大工程管理学院工业工程跨专业自学，基础为研一上学期的强化学习课程，初步了解并在简单的Maze Navigation实例上跑过QL、PG、AC、DDPG，目前使用的框架是Torch，打算用Google的Colab。</p>
-<p>如果想进入工业界该如何规划呢？</p>
-<p>答：</p>
-<p>1.看什么相关的主要跟你的研究方向、研究兴趣相关，强化还是有很多研究方向的，比如稀疏奖励、稳定性、安全性、数据效率、过估计问题、局部可观测问题等等<br>2.linux熟悉的话是加分项，并非必须熟练<br>3.语言着重学python就好，c++看个人实力与兴趣，Java和MySQL完全没必要</p>
-<p>进入工业界的话：</p>
-<ul>
-<li>研究员岗位请打好数学基础，掌握压缩映射、凸优化、约束优化、置信域优化、矩阵论概率论等算法原理；</li>
-<li>工程师岗位请充分<code>实践代码能力</code>，尽量在<code>实验中应用分布式技术</code>，了解<code>分布式RL的原理</code>，同时需<code>对算法的细节</code>有深入了解，知道<code>如何提升算法性能</code>，而非<code>仅仅在网络结构、训练模式上的改动</code>。</li>
-</ul>
-<p>总结：</p>
-<ul>
-<li>看论文时研究的方向需要确定，强化学习也有很多细分领域；</li>
-<li>如果可行，Linux是加分项；</li>
-<li>语言着重Python，可学C++；</li>
-<li>进入工业界，充分实践代码能力，学习分布式技术，分布式RL的原理，对算法的细节有深入了解，知晓如何提升算法性能，而非网络结构、训练模式上的改动。</li>
-</ul>
 
+<p>别想了，我自己也不知道该怎么走强化学习的路。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/17/%E3%80%8C%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E3%80%8D%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E8%A6%81%E5%81%9A%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -589,12 +432,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Zek Shawn">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Zek Shawn">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -610,7 +453,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-05-17 11:50:26 / Modified: 11:52:57" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:26+08:00">2021-05-17</time>
+              <time title="Created: 2021-05-17 11:50:26 / Modified: 12:55:20" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:26+08:00">2021-05-17</time>
             </span>
 
           
@@ -627,41 +470,14 @@
           <blockquote>
 <p>环境搭建步骤备份，以防自己电脑重装系统后配置环境到处找（同时防止知乎的链接挂了）。<br>本文为引用文章，非原创，原链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/343607875">https://zhuanlan.zhihu.com/p/343607875</a></p>
 </blockquote>
-<h2 id="1-安装终端命令行工具"><a href="#1-安装终端命令行工具" class="headerlink" title="1. 安装终端命令行工具"></a>1. 安装终端命令行工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
-<h2 id="2-安装homebrew，最好共存arm版跟x86版"><a href="#2-安装homebrew，最好共存arm版跟x86版" class="headerlink" title="2. 安装homebrew，最好共存arm版跟x86版"></a>2. 安装homebrew，最好共存arm版跟x86版</h2><h3 id="2-0-git安装"><a href="#2-0-git安装" class="headerlink" title="2.0 git安装"></a>2.0 git安装</h3><p><code>macOS</code>如何安装<code>git</code>？直接在终端运行<code>git</code>即可。</p>
-<h3 id="2-1-arm版安装"><a href="#2-1-arm版安装" class="headerlink" title="2.1 arm版安装"></a>2.1 arm版安装</h3><p>运行下面的脚本即可</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>或是使用国内镜像源及脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置homebrew-core镜像</span></span><br><span class="line">HOMEBREW_CORE_GIT_REMOTE=https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line"></span><br><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<p>安装好后换源</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># brew</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span> remote set-url origin https://mirrors.ustc.edu.cn/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># core</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/core)</span>&quot;</span> remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># cask</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask)</span>&quot;</span> remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git</span><br></pre></td></tr></table></figure>
-<p>安装完<code>arm</code>版本的<code>homebrew</code>后注意，需要将运行环境加入<code>PATH</code>中。<code>macOS</code>一般默认使用<code>zsh</code>，如果不是<code>zsh</code>，切换至<code>zsh</code>后使用下面的命令设置<code>PATH</code>。</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">export</span> PATH=/opt/homebrew/bin:<span class="variable">$PATH</span> &gt;&gt; .zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-<h3 id="2-2-x86版homebrew安装"><a href="#2-2-x86版homebrew安装" class="headerlink" title="2.2 x86版homebrew安装"></a>2.2 x86版homebrew安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置homebrew-core镜像</span></span><br><span class="line">HOMEBREW_CORE_GIT_REMOTE=https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line"></span><br><span class="line">arch -x86_64 /bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="2-3-共存"><a href="#2-3-共存" class="headerlink" title="2.3 共存"></a>2.3 共存</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">nano .zshrc</span><br></pre></td></tr></table></figure>
-<p>将<code>alias abrew=&#39;arch -arm64 /opt/homebrew/bin/brew&#39;</code>以及<code>alias ibrew=&#39;arch -x86_64 /usr/local/bin/brew&#39;</code>加入到文件中，按<code>Control</code>加<code>O</code>保存，<code>Control</code>加<code>X</code>退出。<br>之后运行<code>abrew</code>为<code>arm</code>版<code>homebrew</code>，运行<code>ibrew</code>为<code>x86</code>版<code>homebrew</code>。<br>哦对了，记得让文件生效：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .zshrc</span><br></pre></td></tr></table></figure>
-<p>打完收工。</p>
-<h2 id="3-安装Miniforge版本Python（Arm）"><a href="#3-安装Miniforge版本Python（Arm）" class="headerlink" title="3. 安装Miniforge版本Python（Arm）"></a>3. 安装Miniforge版本Python（Arm）</h2><ol>
-<li>进入<code>Miniforge</code>的<code>Github</code>页面，选择<code>osx_arm</code>版本（即对<code>M1</code>支持，最好选择倒数第三个压缩包），将会下载一个名为<a href="https://link.zhihu.com/?target=http://miniforge3-macosx-arm64.sh/">Miniforge3-MacOSX-arm64.sh</a>的脚本文件。</li>
-<li>运行下面的命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chmod +x Miniforge3-MacOSX-arm64.sh</span><br><span class="line">bash Miniforge3-MacOSX-arm64.sh</span><br><span class="line">nano ~/.zshrc</span><br><span class="line"><span class="comment"># 加入这行 export PATH=~/miniforge3/bin:$PATH</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
-打完收工。</li>
-</ol>
-<h2 id="4-安装tensroflow"><a href="#4-安装tensroflow" class="headerlink" title="4. 安装tensroflow"></a>4. 安装tensroflow</h2><ol>
-<li><p>创建<code>conda</code>虚拟环境</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create --name tf24</span><br><span class="line">conda activate tf24</span><br><span class="line">conda install -y python==3.8.6</span><br><span class="line">conda install -y pandas matplotlib scikit-learn jupyterlab</span><br></pre></td></tr></table></figure></li>
-<li><p>安装数据科学包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -y pandas matplotlib scikit-learn jupyterlab</span><br></pre></td></tr></table></figure></li>
-<li><p>安装<code>Apple</code>版<code>TensorFlow</code>，先下载，推荐<code>wget</code>方式下载：<br><a href="https://link.zhihu.com/?target=https://github.com/apple/tensorflow_macos">Apple TensorFlow下载链接</a></p>
-</li>
-<li><p>进入下载的压缩包文件夹，这里因下载的方式不同，文件夹位置有所不同，仅供参考</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow_macos/arm64</span><br></pre></td></tr></table></figure></li>
-<li><p>在<code>tf24</code>环境下使用这些命令：</p>
-</li>
-</ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">conda activate tf24</span><br><span class="line"><span class="comment"># 直接运行</span></span><br><span class="line">pip install --force pip==20.2.4 wheel setuptools cached-property six</span><br><span class="line"><span class="comment"># 注意⚠️，这里需要根据自己下载的版本替换包名（这里的版本是0.1a1）</span></span><br><span class="line">pip install --upgrade --no-dependencies --force numpy-1.18.5-cp38-cp38-macosx_11_0_arm64.whl grpcio-1.33.2-cp38-cp38-macosx_11_0_arm64.whl h5py-2.10.0-cp38-cp38-macosx_11_0_arm64.whl tensorflow_addons-0.11.2+mlcompute-cp38-cp38-macosx_11_0_arm64.whl</span><br><span class="line"><span class="comment"># 直接运行</span></span><br><span class="line">pip install absl-py astunparse flatbuffers gast google_pasta keras_preprocessing opt_einsum protobuf tensorflow_estimator termcolor typing_extensions wrapt wheel tensorboard typeguard</span><br><span class="line"><span class="comment"># 包名替换后运行（这里的版本是0.1a1）</span></span><br><span class="line">pip install --upgrade --force --no-dependencies tensorflow_macos-0.1a1-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
-<p>大功告成，愉快地做一个代码狗吧。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/17/%E3%80%8C%E5%A4%87%E4%BB%BD%E3%80%8D%E5%A6%82%E4%BD%95%E5%9C%A8M1%E7%9A%84Mac%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85TensorFlow/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -684,12 +500,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Zek Shawn">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Zek Shawn">
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
@@ -705,7 +521,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-05-17 11:50:15 / Modified: 11:52:31" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:15+08:00">2021-05-17</time>
+              <time title="Created: 2021-05-17 11:50:15 / Modified: 12:55:16" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:15+08:00">2021-05-17</time>
             </span>
 
           
@@ -720,26 +536,14 @@
 
       
           <p>为了配置环境真是操碎了心。因为tensorflow的复杂，不得不重新配置torch的环境。</p>
-<h2 id="Torch-编译安装"><a href="#Torch-编译安装" class="headerlink" title="Torch 编译安装"></a>Torch 编译安装</h2><p>torch的安装方式有两种，一是通过别人提供的文件直接运行下面的命令安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install packagenames</span><br></pre></td></tr></table></figure>
-<p>但是，别人提供的包一般比较老。因此最好自己编译，然后安装最新的包。这里提供的是官方的GitHub页面的编译过程，至于为何要在这里重新发一遍，因为直接按照官方的走不太行。<a target="_blank" rel="noopener" href="https://github.com/pytorch/pytorch">官方GitHub链接</a></p>
-<p>1.安装依赖</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install numpy ninja pyyaml mkl mkl-include setuptools cmake cffi typing_extensions future six requests dataclasses</span><br></pre></td></tr></table></figure>
-<p>2.安装包，如果分发需要（可跳过）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install pkg-config libuv</span><br></pre></td></tr></table></figure>
-<p>3.下载源码，以及升级命令</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive https://github.com/pytorch/pytorch</span><br><span class="line">cd pytorch</span><br><span class="line"># 如果是升级已有的包</span><br><span class="line">git submodule sync</span><br><span class="line">git submodule update --init --recursive</span><br></pre></td></tr></table></figure>
-<p>4.导入环境变量</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export CMAKE_PREFIX_PATH=$&#123;CONDA_PREFIX:-&quot;$(dirname $(which conda))/../&quot;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>5.执行编译<br>这里需要注意的是，在<code>编译之前</code>，把这两个在CMakeLists.txt里给关掉。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">MKL </span><br><span class="line">openmp</span><br></pre></td></tr></table></figure>
-<p>编译命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MACOSX_DEPLOYMENT_TARGET=10.9 CC=clang CXX=clang++ python setup.py install</span><br></pre></td></tr></table></figure>
-<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><p>编译完成✅之后再运行安装：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python setup.py install</span><br></pre></td></tr></table></figure>
-<p>切换目录到<code>~</code>，然后执行Python，尝试导入torch。</p>
-<p>enjoy。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/05/17/%E3%80%8C%E5%A4%87%E4%BB%BD%E3%80%8D%E5%A6%82%E4%BD%95%E5%9C%A8M1%E7%9A%84%E7%94%B5%E8%84%91%E4%B8%8A%E5%AE%89%E8%A3%85PyTorch/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -812,7 +616,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+  <p class="site-author-name" itemprop="name">Zek Shawn</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -820,16 +624,23 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZekShawn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZekShawn" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
 
 
 
@@ -856,7 +667,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">ZekShawn</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>

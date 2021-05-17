@@ -20,19 +20,17 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="数据挖掘什么是数据挖掘？维基百科的解释如下：数据挖掘是一个跨学科的计算机科学分支 。它是用人工智能、机器学习、统计学和数据库的交叉方法在相对较大型的数据集中发现模式的计算过程。 数据挖掘过程的总体目标是从一个数据集中提取信息，并将其转换成可理解的结构，以进一步使用。简单来说，就是提取数据模式，用以理解利用。所以，它并不是我们直观理解的爬数据，数据挖掘“挖”的不是数据本身，而是隐含在数据内的东西。">
-<meta property="og:type" content="article">
+  <meta property="og:type" content="article">
 <meta property="og:title" content="做数据挖掘前的数据预处理1">
 <meta property="og:url" content="http://example.com/2021/05/17/%E5%81%9A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%861/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="数据挖掘什么是数据挖掘？维基百科的解释如下：数据挖掘是一个跨学科的计算机科学分支 。它是用人工智能、机器学习、统计学和数据库的交叉方法在相对较大型的数据集中发现模式的计算过程。 数据挖掘过程的总体目标是从一个数据集中提取信息，并将其转换成可理解的结构，以进一步使用。简单来说，就是提取数据模式，用以理解利用。所以，它并不是我们直观理解的爬数据，数据挖掘“挖”的不是数据本身，而是隐含在数据内的东西。">
+<meta property="og:site_name" content="Zek Shawn">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://pic1.zhimg.com/v2-e8fb49b7dc141a58809c6db476d1c137_1440w.jpg?source=172ae18b">
 <meta property="og:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103082111559494045.png">
 <meta property="og:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103082152526813737.png">
 <meta property="article:published_time" content="2021-05-17T03:51:13.000Z">
-<meta property="article:modified_time" content="2021-05-17T03:55:10.573Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:modified_time" content="2021-05-17T04:55:38.451Z">
+<meta property="article:author" content="Zek Shawn">
 <meta property="article:tag" content="特征工程">
 <meta property="article:tag" content="数据挖掘">
 <meta name="twitter:card" content="summary">
@@ -51,7 +49,7 @@
   };
 </script>
 
-  <title>做数据挖掘前的数据预处理1 | Hexo</title>
+  <title>做数据挖掘前的数据预处理1 | Zek Shawn</title>
   
 
 
@@ -102,7 +100,7 @@
 
     <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <h1 class="site-title">Hexo</h1>
+      <h1 class="site-title">Zek Shawn</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
@@ -121,6 +119,21 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -160,12 +173,12 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="John Doe">
+      <meta itemprop="name" content="Zek Shawn">
       <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Zek Shawn">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -180,7 +193,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-05-17 11:51:13 / Modified: 11:55:10" itemprop="dateCreated datePublished" datetime="2021-05-17T11:51:13+08:00">2021-05-17</time>
+              <time title="Created: 2021-05-17 11:51:13 / Modified: 12:55:38" itemprop="dateCreated datePublished" datetime="2021-05-17T11:51:13+08:00">2021-05-17</time>
             </span>
 
           
@@ -195,6 +208,8 @@
 
       
         <p><img src="https://pic1.zhimg.com/v2-e8fb49b7dc141a58809c6db476d1c137_1440w.jpg?source=172ae18b"></p>
+<span id="more"></span>
+
 <h2 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h2><p>什么是数据挖掘？<br>维基百科的解释如下：<br>数据挖掘是一个跨学科的计算机科学分支 。它是用人工智能、机器学习、统计学和数据库的交叉方法在相对较大型的数据集中发现模式的计算过程。 数据挖掘过程的总体目标是从一个数据集中提取信息，并将其转换成可理解的结构，以进一步使用。<br>简单来说，就是提取数据模式，用以理解利用。所以，它并不是我们直观理解的爬数据，数据挖掘“挖”的不是数据本身，而是隐含在数据内的东西。<br>举个例子，申请银行贷款的时候我们需要填一堆信息，等待一段时间才能知道是否能申请成功。这是因为，银行要对我们的信息进行审核，确保我们会在协议规定的日期内还款，以保证银行的正常运转（这里夸张了，一个人一般情况下是影响不到银行的运转的）。<br>那么，如何从你的数据中挖掘到“是否能且愿意准时还款”，就是一个很值得研究的问题。在这个研究过程中，并不限于方法，像是人工智能、机器学习、算法预测等，只要通过你填写的简单资料（虽然我们填写了很多资料，但对于判断是否能准时还款来说，信息量还是太少），就能判断是否给你贷款。这对于银行来说，就是巨大的价值。</p>
 <h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>什么是数据预处理？<br>对于人工智能、机器学习来说，数据永远是最重要的。数据决定你的预测模型的上限，优秀的算法跟模型只是接近上限的方法。这句话一点也没说错。<br>拿非常古老也是应用的最好的领域，银行信贷来说。数据的年限、周期、完整度等都很关键，如预测2021年的某个人是否可信，那么我们绝不可能拿2010年的数据去做模式匹配。因为这时间相差过大，因为通货膨胀，金钱的价值不可同等比较（例如工资和贷款金额、贷款利率、住房价值等等）。那么拿2020年的数据如何？事实上也不好，因为2020年的数据意味着客户还没有还款达到一定的周期，无法判断一个客户是优质的愿意还款的客户还是容易违约的客户。因此，我们需要找那些贷款不久，但又有一定还款周期的客户数据拿来训练做模式匹配。<br>当然，上面的这些还是太过于大概，只是用于我自己做一个知识梳理。接下来将会讲述一般情形下，如何做数据的预处理，这对模型的效果有关键性影响。这些都是数据层面上，上面所提到的都是数据在收集层面的。</p>
 <h2 id="对于分类型数据"><a href="#对于分类型数据" class="headerlink" title="对于分类型数据"></a>对于分类型数据</h2><p>什么是分类型数据？<br>分类型就是，选择形式的数据。如，你是否已婚？银行通常在调查表上会给几个选项，如未婚、已婚、保密等。这类信息没有明确的数值，也无法直接简单使用数值进行代替（关于为什么稍后再说）。成为分类型数据，那么对于分类型数据，有哪些需要注意的点呢？</p>
@@ -306,7 +321,7 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">John Doe</p>
+  <p class="site-author-name" itemprop="name">Zek Shawn</p>
   <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -314,16 +329,23 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">tags</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZekShawn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZekShawn" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
 
 
 
@@ -350,7 +372,7 @@
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">John Doe</span>
+  <span class="author" itemprop="copyrightHolder">ZekShawn</span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
