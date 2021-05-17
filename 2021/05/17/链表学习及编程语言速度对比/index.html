@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="1. Python如何定义链表？首先定义一个节点： 1234class Node(object):    def __init__(self, item):        self.item &#x3D; item        self.next &#x3D; None 其次，链表分为了单链表与循环链表，具体解释可参考文章。 单链表定义形式为： 123class SingleLinkList(object):">
+<meta property="og:type" content="article">
+<meta property="og:title" content="链表学习及编程语言速度对比">
+<meta property="og:url" content="http://example.com/2021/05/17/%E9%93%BE%E8%A1%A8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. Python如何定义链表？首先定义一个节点： 1234class Node(object):    def __init__(self, item):        self.item &#x3D; item        self.next &#x3D; None 其次，链表分为了单链表与循环链表，具体解释可参考文章。 单链表定义形式为： 123class SingleLinkList(object):">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103091314557183126.png">
+<meta property="og:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103091322152410215.png">
+<meta property="og:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103091550478165834.png">
+<meta property="og:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103091551344537737.png">
+<meta property="og:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103091551496422650.png">
+<meta property="article:published_time" content="2021-05-17T03:50:54.000Z">
+<meta property="article:modified_time" content="2021-05-17T03:54:13.561Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103091314557183126.png">
+
+<link rel="canonical" href="http://example.com/2021/05/17/%E9%93%BE%E8%A1%A8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>链表学习及编程语言速度对比 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/17/%E9%93%BE%E8%A1%A8%E5%AD%A6%E4%B9%A0%E5%8F%8A%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E9%80%9F%E5%BA%A6%E5%AF%B9%E6%AF%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          链表学习及编程语言速度对比
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-17 11:50:54 / Modified: 11:54:13" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:54+08:00">2021-05-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1-Python如何定义链表？"><a href="#1-Python如何定义链表？" class="headerlink" title="1. Python如何定义链表？"></a>1. Python如何定义链表？</h2><p>首先定义一个节点：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        self.item = item</span><br><span class="line">        self.<span class="built_in">next</span> = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<p>其次，链表分为了单链表与循环链表，具体解释可参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/60057180" title="文章">文章</a>。</p>
+<p>单链表定义形式为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkList</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self._head = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<p>其使用形式为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    link_list = SingleLinkList()</span><br><span class="line"></span><br><span class="line">    node1 = Node(<span class="number">1</span>)</span><br><span class="line">    node2 = Node(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    link_list._head = node1</span><br><span class="line">    node1.<span class="built_in">next</span> = node2</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(link_list._head.item)</span><br><span class="line">    <span class="built_in">print</span>(link_list._head.<span class="built_in">next</span>.item)</span><br></pre></td></tr></table></figure>
+<p>可以看到，其使用非常简单。基本就是值加上一个指往下一个节点的指针。链表的定义比较麻烦，如果要实现比较便捷的添加、删除、更改的话，需要自己手动定义上述方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SingleLinkList</span>(<span class="params"><span class="built_in">object</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;单链表&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self._head = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">is_empty</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;判断链表是否为空&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> self._head <span class="keyword">is</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">length</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;链表长度&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 初始指针指向head</span></span><br><span class="line">        cur = self._head</span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 指针指向None 表示到达尾部</span></span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            count += <span class="number">1</span></span><br><span class="line">            <span class="comment"># 指针下移</span></span><br><span class="line">            cur = cur.<span class="built_in">next</span></span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">items</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;遍历链表&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 获取head指针</span></span><br><span class="line">        cur = self._head</span><br><span class="line">        <span class="comment"># 循环遍历</span></span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 返回生成器</span></span><br><span class="line">            <span class="keyword">yield</span> cur.item</span><br><span class="line">            <span class="comment"># 指针下移</span></span><br><span class="line">            cur = cur.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;向链表头部添加元素&quot;&quot;&quot;</span></span><br><span class="line">        node = Node(item)</span><br><span class="line">        <span class="comment"># 新结点指针指向原头部结点</span></span><br><span class="line">        node.<span class="built_in">next</span> = self._head</span><br><span class="line">        <span class="comment"># 头部结点指针修改为新结点</span></span><br><span class="line">        self._head = node</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">append</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;尾部添加元素&quot;&quot;&quot;</span></span><br><span class="line">        node = Node(item)</span><br><span class="line">        <span class="comment"># 先判断是否为空链表</span></span><br><span class="line">        <span class="keyword">if</span> self.is_empty():</span><br><span class="line">            <span class="comment"># 空链表，_head 指向新结点</span></span><br><span class="line">            self._head = node</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 不是空链表，则找到尾部，将尾部next结点指向新结点</span></span><br><span class="line">            cur = self._head</span><br><span class="line">            <span class="keyword">while</span> cur.<span class="built_in">next</span> <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                cur = cur.<span class="built_in">next</span></span><br><span class="line">            cur.<span class="built_in">next</span> = node</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span>(<span class="params">self, index, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;指定位置插入元素&quot;&quot;&quot;</span></span><br><span class="line">        <span class="comment"># 指定位置在第一个元素之前，在头部插入</span></span><br><span class="line">        <span class="keyword">if</span> index &lt;= <span class="number">0</span>:</span><br><span class="line">            self.add(item)</span><br><span class="line">        <span class="comment"># 指定位置超过尾部，在尾部插入</span></span><br><span class="line">        <span class="keyword">elif</span> index &gt; (self.length() - <span class="number">1</span>):</span><br><span class="line">            self.append(item)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 创建元素结点</span></span><br><span class="line">            node = Node(item)</span><br><span class="line">            cur = self._head</span><br><span class="line">            <span class="comment"># 循环到需要插入的位置</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(index - <span class="number">1</span>):</span><br><span class="line">                cur = cur.<span class="built_in">next</span></span><br><span class="line">            node.<span class="built_in">next</span> = cur.<span class="built_in">next</span></span><br><span class="line">            cur.<span class="built_in">next</span> = node</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">remove</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;删除节点&quot;&quot;&quot;</span></span><br><span class="line">        cur = self._head</span><br><span class="line">        pre = <span class="literal">None</span></span><br><span class="line">        <span class="keyword">while</span> cur <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="comment"># 找到指定元素</span></span><br><span class="line">            <span class="keyword">if</span> cur.item == item:</span><br><span class="line">                <span class="comment"># 如果第一个就是删除的节点</span></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> pre:</span><br><span class="line">                    <span class="comment"># 将头指针指向头节点的后一个节点</span></span><br><span class="line">                    self._head = cur.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="comment"># 将删除位置前一个节点的next指向删除位置的后一个节点</span></span><br><span class="line">                    pre.<span class="built_in">next</span> = cur.<span class="built_in">next</span></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment"># 继续按链表后移节点</span></span><br><span class="line">                pre = cur</span><br><span class="line">                cur = cur.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span>(<span class="params">self, item</span>):</span></span><br><span class="line">        <span class="string">&quot;&quot;&quot;查找元素是否存在&quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> item <span class="keyword">in</span> self.items()</span><br></pre></td></tr></table></figure>
+<p>还有循环链表，这里就不一一展示了。</p>
+<h2 id="2-实操-LeetCode经典题，两数相加"><a href="#2-实操-LeetCode经典题，两数相加" class="headerlink" title="2. 实操 - LeetCode经典题，两数相加"></a>2. 实操 - LeetCode经典题，两数相加</h2><p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091314557183126.png"></p>
+<p>基本的思路有两条，第一种思路：</p>
+<ul>
+<li>将两个链表存储的数取出，连接成字符串，取反之后，使用int强行转换为数字；</li>
+<li>将转换的数字相加，得到结果数字，填入新的链表，并强行转换为int类型；</li>
+</ul>
+<p>第二种思路：</p>
+<ul>
+<li>将链表补齐（两个初始链表的长度可能不一），在末尾加0。</li>
+<li>从链表的head到末尾，依次对应相加，与10取余放在新的链表对应位。除数进位到下一个位置与链表对应值相加。</li>
+</ul>
+<p>从思路上来说，第一种思路相对而言，比较容易想到，也比较容易操作。但可惜的是，会超时。因为至少需要三个循环，比较费时间。</p>
+<p>第二种的解题代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addTwoNumbers</span>(<span class="params">self, l1: ListNode, l2: ListNode</span>) -&gt; ListNode:</span></span><br><span class="line">        head = sumNode = ListNode()</span><br><span class="line">        val = carry = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> (l1 <span class="keyword">or</span> l2):</span><br><span class="line">            val = carry</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> l1: l1, val = l1.<span class="built_in">next</span>, l1.val + val</span><br><span class="line">            <span class="keyword">if</span> l2: l2, val = l2.<span class="built_in">next</span>, l2.val + val</span><br><span class="line"></span><br><span class="line">            carry, val = <span class="built_in">divmod</span>(val,<span class="number">10</span>)</span><br><span class="line">            sumNode.<span class="built_in">next</span> = ListNode(val)</span><br><span class="line">            sumNode = sumNode.<span class="built_in">next</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> head.<span class="built_in">next</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Python-小练习-LeetCode经典题-最长回文子串"><a href="#3-Python-小练习-LeetCode经典题-最长回文子串" class="headerlink" title="3. Python 小练习 - LeetCode经典题 最长回文子串"></a>3. Python 小练习 - LeetCode经典题 最长回文子串</h2><p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091322152410215.png"><br>这是一个看起来貌似简单的题目。但它的要点不在于如何实现题目要求，找到正确的字符串，而是如何节省时间。</p>
+<p>回文字符串的判定实现很简单，只需要判断字符串的前半部分是否与字符串的后半部分的镜像字符串相等即可。</p>
+<p>代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="built_in">len</span>(s)-index)%<span class="number">2</span>==<span class="number">0</span>: af = (<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index</span><br><span class="line">                    <span class="keyword">else</span>: af = (<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index+<span class="number">1</span></span><br><span class="line">                    <span class="keyword">if</span> s[index:(<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index] == s[af:][::-<span class="number">1</span>]:</span><br></pre></td></tr></table></figure>
+<p>但是，可以预见，如果从第一个字符开始找起，匹配每一种可能，需要的时间是巨量的。</p>
+<p>因此，我们尝试贪心。即，从第一个字符开始，查找字符串中最后出现的它的位置。找到之后，查看它们圈起来的子字符串是否是回文。如若不是，删去后面的部分，继续重复查找。</p>
+<p>这样只要内外两层循环，内存循环还可以借由已经找到的较长字符串来进行筛选节省时间。完整代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">longestPalindrome</span>(<span class="params">self, s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">str</span>:</span></span><br><span class="line">        </span><br><span class="line">        maxstring,maxcount =  s[<span class="number">0</span>],<span class="number">1</span></span><br><span class="line">        temp_s = s</span><br><span class="line">        <span class="keyword">while</span> <span class="built_in">len</span>(temp_s) &gt;<span class="number">0</span>:</span><br><span class="line">            s = temp_s</span><br><span class="line">            <span class="keyword">while</span> <span class="built_in">len</span>(s) &gt; <span class="number">0</span>:</span><br><span class="line">                s = s[::-<span class="number">1</span>]</span><br><span class="line">                index = s.index(s[-<span class="number">1</span>])</span><br><span class="line">                <span class="keyword">if</span> maxcount &lt; (<span class="built_in">len</span>(s)-index):</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">len</span>(s)-index)%<span class="number">2</span>==<span class="number">0</span>: af = (<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index</span><br><span class="line">                    <span class="keyword">else</span>: af = (<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index+<span class="number">1</span></span><br><span class="line">                    <span class="keyword">if</span> s[index:(<span class="built_in">len</span>(s)-index)//<span class="number">2</span>+index] == s[af:][::-<span class="number">1</span>]:</span><br><span class="line">                        maxstring = s[index:][::-<span class="number">1</span>]</span><br><span class="line">                        maxcount = <span class="built_in">len</span>(maxstring)</span><br><span class="line">                s = s[index+<span class="number">1</span>:]</span><br><span class="line">                s = s[::-<span class="number">1</span>]</span><br><span class="line">            temp_s = temp_s[<span class="number">1</span>:]</span><br><span class="line">        <span class="keyword">return</span> maxstring</span><br></pre></td></tr></table></figure>
+
+<p>Java中的链表是怎么样定义的，不太清楚。但依照着前面Python的思路，可以快捷写出下面的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">addTwoNumbers</span><span class="params">(ListNode l1, ListNode l2)</span> </span>&#123;</span><br><span class="line">        ListNode curr = <span class="keyword">new</span> ListNode();</span><br><span class="line">        ListNode head = curr;</span><br><span class="line">        <span class="keyword">int</span> val=<span class="number">0</span>,carry=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (l1!=<span class="keyword">null</span> || l2!=<span class="keyword">null</span>)&#123;</span><br><span class="line">            val = carry;</span><br><span class="line">            <span class="keyword">if</span> (l1!=<span class="keyword">null</span>)&#123;val+=l1.val;&#125;</span><br><span class="line">            <span class="keyword">if</span> (l2!=<span class="keyword">null</span>)&#123;val+=l2.val;&#125;</span><br><span class="line">            carry = (<span class="keyword">int</span>)(val/<span class="number">10</span>);</span><br><span class="line">            val = (<span class="keyword">int</span>)(val%<span class="number">10</span>);</span><br><span class="line">            curr.next = <span class="keyword">new</span> ListNode(val);</span><br><span class="line">            curr = curr.next;</span><br><span class="line">            <span class="keyword">if</span> (l1!=<span class="keyword">null</span>&amp;&amp;l1.next!=<span class="keyword">null</span>)&#123;l1=l1.next;&#125;<span class="keyword">else</span>&#123;l1=<span class="keyword">null</span>;&#125;</span><br><span class="line">            <span class="keyword">if</span> (l2!=<span class="keyword">null</span>&amp;&amp;l2.next!=<span class="keyword">null</span>)&#123;l2=l2.next;&#125;<span class="keyword">else</span>&#123;l2=<span class="keyword">null</span>;&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (carry&gt;<span class="number">0</span>)&#123;curr.next = <span class="keyword">new</span> ListNode(carry);curr=curr.next;&#125;</span><br><span class="line">        <span class="keyword">return</span> head.next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-编程语言之间的效率"><a href="#4-编程语言之间的效率" class="headerlink" title="4. 编程语言之间的效率"></a>4. 编程语言之间的效率</h2><blockquote>
+<p>之前从来没有注意过这种问题，总觉得效率无所谓。可能是因为我主要用的是Python吧，为了方便，包容性总是强一点。但是今天使用Java提交一次代码之后，惊了，效率竟然高这么多。简直离谱，我决定以后都使用Java去写这类逻辑性比较强的数字运算代码。</p>
+</blockquote>
+<h3 id="4-1-Python："><a href="#4-1-Python：" class="headerlink" title="4.1 Python："></a>4.1 Python：</h3><p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091550478165834.png" alt="Python运算速度" title="Python运算速度"></p>
+<h3 id="4-2-Java："><a href="#4-2-Java：" class="headerlink" title="4.2 Java："></a>4.2 Java：</h3><p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091551344537737.png" alt="Java运算速度" title="Java运算速度"></p>
+<p>有人可能怀疑我这只有一个人提交了Java，那么放上下面的内存排名图你就知道，上面的时间只是因为坐标轴的缩放原因，看起来只有我一个人提交。</p>
+<p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103091551496422650.png" alt="Java内存消耗" title="Java内存消耗"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Python/" rel="tag"># Python</a>
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/17/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/" rel="prev" title="个人简介">
+      <i class="fa fa-chevron-left"></i> 个人简介
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/17/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E9%99%B7%E5%85%A5%E3%80%8C%E4%BD%8E%E7%BA%A7%E5%BF%AB%E4%B9%90%E3%80%8D%E7%9A%84%E6%80%AA%E5%9C%88%EF%BC%9F/" rel="next" title="如何避免陷入「低级快乐」的怪圈？">
+      如何避免陷入「低级快乐」的怪圈？ <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Python%E5%A6%82%E4%BD%95%E5%AE%9A%E4%B9%89%E9%93%BE%E8%A1%A8%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1. Python如何定义链表？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%9E%E6%93%8D-LeetCode%E7%BB%8F%E5%85%B8%E9%A2%98%EF%BC%8C%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0"><span class="nav-number">2.</span> <span class="nav-text">2. 实操 - LeetCode经典题，两数相加</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Python-%E5%B0%8F%E7%BB%83%E4%B9%A0-LeetCode%E7%BB%8F%E5%85%B8%E9%A2%98-%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E5%AD%90%E4%B8%B2"><span class="nav-number">3.</span> <span class="nav-text">3. Python 小练习 - LeetCode经典题 最长回文子串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%88%E7%8E%87"><span class="nav-number">4.</span> <span class="nav-text">4. 编程语言之间的效率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-Python%EF%BC%9A"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 Python：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-Java%EF%BC%9A"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 Java：</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

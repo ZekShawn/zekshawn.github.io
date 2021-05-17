@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="数据挖掘什么是数据挖掘？维基百科的解释如下：数据挖掘是一个跨学科的计算机科学分支 。它是用人工智能、机器学习、统计学和数据库的交叉方法在相对较大型的数据集中发现模式的计算过程。 数据挖掘过程的总体目标是从一个数据集中提取信息，并将其转换成可理解的结构，以进一步使用。简单来说，就是提取数据模式，用以理解利用。所以，它并不是我们直观理解的爬数据，数据挖掘“挖”的不是数据本身，而是隐含在数据内的东西。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="做数据挖掘前的数据预处理1">
+<meta property="og:url" content="http://example.com/2021/05/17/%E5%81%9A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%861/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据挖掘什么是数据挖掘？维基百科的解释如下：数据挖掘是一个跨学科的计算机科学分支 。它是用人工智能、机器学习、统计学和数据库的交叉方法在相对较大型的数据集中发现模式的计算过程。 数据挖掘过程的总体目标是从一个数据集中提取信息，并将其转换成可理解的结构，以进一步使用。简单来说，就是提取数据模式，用以理解利用。所以，它并不是我们直观理解的爬数据，数据挖掘“挖”的不是数据本身，而是隐含在数据内的东西。">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-e8fb49b7dc141a58809c6db476d1c137_1440w.jpg?source=172ae18b">
+<meta property="og:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103082111559494045.png">
+<meta property="og:image" content="https://zeksay.cn/zb_users/upload/2021/03/202103082152526813737.png">
+<meta property="article:published_time" content="2021-05-17T03:51:13.000Z">
+<meta property="article:modified_time" content="2021-05-17T03:55:10.573Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="特征工程">
+<meta property="article:tag" content="数据挖掘">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic1.zhimg.com/v2-e8fb49b7dc141a58809c6db476d1c137_1440w.jpg?source=172ae18b">
+
+<link rel="canonical" href="http://example.com/2021/05/17/%E5%81%9A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%861/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>做数据挖掘前的数据预处理1 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/17/%E5%81%9A%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E5%89%8D%E7%9A%84%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%861/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          做数据挖掘前的数据预处理1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-17 11:51:13 / Modified: 11:55:10" itemprop="dateCreated datePublished" datetime="2021-05-17T11:51:13+08:00">2021-05-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><img src="https://pic1.zhimg.com/v2-e8fb49b7dc141a58809c6db476d1c137_1440w.jpg?source=172ae18b"></p>
+<h2 id="数据挖掘"><a href="#数据挖掘" class="headerlink" title="数据挖掘"></a>数据挖掘</h2><p>什么是数据挖掘？<br>维基百科的解释如下：<br>数据挖掘是一个跨学科的计算机科学分支 。它是用人工智能、机器学习、统计学和数据库的交叉方法在相对较大型的数据集中发现模式的计算过程。 数据挖掘过程的总体目标是从一个数据集中提取信息，并将其转换成可理解的结构，以进一步使用。<br>简单来说，就是提取数据模式，用以理解利用。所以，它并不是我们直观理解的爬数据，数据挖掘“挖”的不是数据本身，而是隐含在数据内的东西。<br>举个例子，申请银行贷款的时候我们需要填一堆信息，等待一段时间才能知道是否能申请成功。这是因为，银行要对我们的信息进行审核，确保我们会在协议规定的日期内还款，以保证银行的正常运转（这里夸张了，一个人一般情况下是影响不到银行的运转的）。<br>那么，如何从你的数据中挖掘到“是否能且愿意准时还款”，就是一个很值得研究的问题。在这个研究过程中，并不限于方法，像是人工智能、机器学习、算法预测等，只要通过你填写的简单资料（虽然我们填写了很多资料，但对于判断是否能准时还款来说，信息量还是太少），就能判断是否给你贷款。这对于银行来说，就是巨大的价值。</p>
+<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>什么是数据预处理？<br>对于人工智能、机器学习来说，数据永远是最重要的。数据决定你的预测模型的上限，优秀的算法跟模型只是接近上限的方法。这句话一点也没说错。<br>拿非常古老也是应用的最好的领域，银行信贷来说。数据的年限、周期、完整度等都很关键，如预测2021年的某个人是否可信，那么我们绝不可能拿2010年的数据去做模式匹配。因为这时间相差过大，因为通货膨胀，金钱的价值不可同等比较（例如工资和贷款金额、贷款利率、住房价值等等）。那么拿2020年的数据如何？事实上也不好，因为2020年的数据意味着客户还没有还款达到一定的周期，无法判断一个客户是优质的愿意还款的客户还是容易违约的客户。因此，我们需要找那些贷款不久，但又有一定还款周期的客户数据拿来训练做模式匹配。<br>当然，上面的这些还是太过于大概，只是用于我自己做一个知识梳理。接下来将会讲述一般情形下，如何做数据的预处理，这对模型的效果有关键性影响。这些都是数据层面上，上面所提到的都是数据在收集层面的。</p>
+<h2 id="对于分类型数据"><a href="#对于分类型数据" class="headerlink" title="对于分类型数据"></a>对于分类型数据</h2><p>什么是分类型数据？<br>分类型就是，选择形式的数据。如，你是否已婚？银行通常在调查表上会给几个选项，如未婚、已婚、保密等。这类信息没有明确的数值，也无法直接简单使用数值进行代替（关于为什么稍后再说）。成为分类型数据，那么对于分类型数据，有哪些需要注意的点呢？</p>
+<ul>
+<li>缺失值大于50%，则删除该属性。小于50%，可以采用各种填充方式，如中位数、人工、众数、单独归类。</li>
+<li>如果分类属性两个取值对应的oods（ p /（1-p），p 是坏客户的概率）相同，如果分类属性只有两个取值，则删除该变量，否则合并为一类。</li>
+<li>如果取某个值的对象数量占比小于5%，那么把该取值对应的对象划分到与该取值的oods最接近的一个类别去。直到每一个类别对象占比不少于5%。</li>
+<li>如果某个取值的对象数量大于90%，则删除该属性。</li>
+</ul>
+<p>上述规则是比较基础的，简单的几条处理规则。一般来说，经过上述的处理之后，数据算是合格了。</p>
+<h2 id="对于数值型数据"><a href="#对于数值型数据" class="headerlink" title="对于数值型数据"></a>对于数值型数据</h2><p>什么是数值型数据？<br>我想，你在信用卡的申请表上肯定看到过工资的填写格。那就是数值型数据，它是连续数据。对于连续数据，如果要想用机器学习的办法进行处理，进行模式匹配，是比较难的，或者说需要的数据量是比较大的（原因是我自己分析的，但的确转换后会有好处）。最好转换为离散分类型数据。<br>那么对于数值型数据，有哪些需要处理的？或者说一般的处理规则是什么样的？</p>
+<ul>
+<li>缺失比例大于70%，删除变量；小于，则采用平均值、最小、最大、预测或单独归类；</li>
+<li>离散化数据，有等宽、等频、K均值、监督方法、卡方离散化、基于熵的离散化；</li>
+</ul>
+<p>上面就是数值型数据需要注意的点。第二点中，数据的离散化，指的是将数据进行分组。其中等宽很好理解，区间的宽度相等。等频指的是，每一组的频数相等，换句话说，均匀将数据分组。值得注意的是，必须得保证数据是从小到大，连续分组，不跳跃。</p>
+<h2 id="数据处理的例子"><a href="#数据处理的例子" class="headerlink" title="数据处理的例子"></a>数据处理的例子</h2><p>如果你跟我一样，有去蹭一门叫做数据挖掘的课。那么你会有一个银行信用评分的例子，可供练手。</p>
+<p>这里给我的（又臭又长的）代码以供参考，当然，我劝在座的各位，写代码一定不要像我一样，写成这样冗长的可读性极差的。</p>
+<p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103082111559494045.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入数据处理包</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据读取</span></span><br><span class="line">data = pd.read_csv(<span class="string">&quot;Credit.csv&quot;</span>)</span><br><span class="line">rows = data.shape[<span class="number">0</span>]</span><br><span class="line">data.head()</span><br></pre></td></tr></table></figure>
+<p>剩下的代码因为格式问题，复制过来很难看。附上图片以及代码源文件，建议使用Jupyter编写以及查看此类代码。</p>
+<p><img src="https://zeksay.cn/zb_users/upload/2021/03/202103082152526813737.png"></p>
+<p><a target="_blank" rel="noopener" href="https://disk.zeksay.cn/#s/6wtX0CxQ" title="Jupyter Notebook源文件">Jupyter Notebook源文件</a><br>访问密码：hQFN6</p>
+<p><a target="_blank" rel="noopener" href="https://disk.zeksay.cn/#s/6wtYhslQ" title="Python源文件，可用VSCode、PyCharm及文本编辑器打开">Python源文件，可用VSCode、PyCharm及文本编辑器打开</a><br>访问密码：fH66l</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" rel="tag"># 特征工程</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98/" rel="tag"># 数据挖掘</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/17/%E5%A6%82%E4%BD%95%E9%81%BF%E5%85%8D%E9%99%B7%E5%85%A5%E3%80%8C%E4%BD%8E%E7%BA%A7%E5%BF%AB%E4%B9%90%E3%80%8D%E7%9A%84%E6%80%AA%E5%9C%88%EF%BC%9F/" rel="prev" title="如何避免陷入「低级快乐」的怪圈？">
+      <i class="fa fa-chevron-left"></i> 如何避免陷入「低级快乐」的怪圈？
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98"><span class="nav-number">1.</span> <span class="nav-text">数据挖掘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">数据预处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E5%88%86%E7%B1%BB%E5%9E%8B%E6%95%B0%E6%8D%AE"><span class="nav-number">3.</span> <span class="nav-text">对于分类型数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E6%95%B0%E5%80%BC%E5%9E%8B%E6%95%B0%E6%8D%AE"><span class="nav-number">4.</span> <span class="nav-text">对于数值型数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">5.</span> <span class="nav-text">数据处理的例子</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

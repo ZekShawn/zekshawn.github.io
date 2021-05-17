@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="环境搭建步骤备份，以防自己电脑重装系统后配置环境到处找（同时防止知乎的链接挂了）。本文为引用文章，非原创，原链接：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;343607875  1. 安装终端命令行工具1xcode-select --install 2. 安装homebrew，最好共存arm版跟x86版2.0 git安装macOS如何安装git？直接在终端运行git即可。 2.1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「备份」如何在M1的Mac上配置安装TensorFlow">
+<meta property="og:url" content="http://example.com/2021/05/17/%E3%80%8C%E5%A4%87%E4%BB%BD%E3%80%8D%E5%A6%82%E4%BD%95%E5%9C%A8M1%E7%9A%84Mac%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85TensorFlow/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="环境搭建步骤备份，以防自己电脑重装系统后配置环境到处找（同时防止知乎的链接挂了）。本文为引用文章，非原创，原链接：https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;343607875  1. 安装终端命令行工具1xcode-select --install 2. 安装homebrew，最好共存arm版跟x86版2.0 git安装macOS如何安装git？直接在终端运行git即可。 2.1">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-17T03:50:26.000Z">
+<meta property="article:modified_time" content="2021-05-17T03:52:57.812Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="TensorFlow">
+<meta property="article:tag" content="M1">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/05/17/%E3%80%8C%E5%A4%87%E4%BB%BD%E3%80%8D%E5%A6%82%E4%BD%95%E5%9C%A8M1%E7%9A%84Mac%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85TensorFlow/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>「备份」如何在M1的Mac上配置安装TensorFlow | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/17/%E3%80%8C%E5%A4%87%E4%BB%BD%E3%80%8D%E5%A6%82%E4%BD%95%E5%9C%A8M1%E7%9A%84Mac%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85TensorFlow/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「备份」如何在M1的Mac上配置安装TensorFlow
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-17 11:50:26 / Modified: 11:52:57" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:26+08:00">2021-05-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>环境搭建步骤备份，以防自己电脑重装系统后配置环境到处找（同时防止知乎的链接挂了）。<br>本文为引用文章，非原创，原链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/343607875">https://zhuanlan.zhihu.com/p/343607875</a></p>
+</blockquote>
+<h2 id="1-安装终端命令行工具"><a href="#1-安装终端命令行工具" class="headerlink" title="1. 安装终端命令行工具"></a>1. 安装终端命令行工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xcode-select --install</span><br></pre></td></tr></table></figure>
+<h2 id="2-安装homebrew，最好共存arm版跟x86版"><a href="#2-安装homebrew，最好共存arm版跟x86版" class="headerlink" title="2. 安装homebrew，最好共存arm版跟x86版"></a>2. 安装homebrew，最好共存arm版跟x86版</h2><h3 id="2-0-git安装"><a href="#2-0-git安装" class="headerlink" title="2.0 git安装"></a>2.0 git安装</h3><p><code>macOS</code>如何安装<code>git</code>？直接在终端运行<code>git</code>即可。</p>
+<h3 id="2-1-arm版安装"><a href="#2-1-arm版安装" class="headerlink" title="2.1 arm版安装"></a>2.1 arm版安装</h3><p>运行下面的脚本即可</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>或是使用国内镜像源及脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置homebrew-core镜像</span></span><br><span class="line">HOMEBREW_CORE_GIT_REMOTE=https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line"></span><br><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<p>安装好后换源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># brew</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span> remote set-url origin https://mirrors.ustc.edu.cn/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># core</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/core)</span>&quot;</span> remote set-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># cask</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask)</span>&quot;</span> remote set-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git</span><br></pre></td></tr></table></figure>
+<p>安装完<code>arm</code>版本的<code>homebrew</code>后注意，需要将运行环境加入<code>PATH</code>中。<code>macOS</code>一般默认使用<code>zsh</code>，如果不是<code>zsh</code>，切换至<code>zsh</code>后使用下面的命令设置<code>PATH</code>。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">export</span> PATH=/opt/homebrew/bin:<span class="variable">$PATH</span> &gt;&gt; .zshrc</span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-x86版homebrew安装"><a href="#2-2-x86版homebrew安装" class="headerlink" title="2.2 x86版homebrew安装"></a>2.2 x86版homebrew安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置homebrew-core镜像</span></span><br><span class="line">HOMEBREW_CORE_GIT_REMOTE=https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line"></span><br><span class="line">arch -x86_64 /bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://cdn.jsdelivr.net/gh/ineo6/homebrew-install/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="2-3-共存"><a href="#2-3-共存" class="headerlink" title="2.3 共存"></a>2.3 共存</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">nano .zshrc</span><br></pre></td></tr></table></figure>
+<p>将<code>alias abrew=&#39;arch -arm64 /opt/homebrew/bin/brew&#39;</code>以及<code>alias ibrew=&#39;arch -x86_64 /usr/local/bin/brew&#39;</code>加入到文件中，按<code>Control</code>加<code>O</code>保存，<code>Control</code>加<code>X</code>退出。<br>之后运行<code>abrew</code>为<code>arm</code>版<code>homebrew</code>，运行<code>ibrew</code>为<code>x86</code>版<code>homebrew</code>。<br>哦对了，记得让文件生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .zshrc</span><br></pre></td></tr></table></figure>
+<p>打完收工。</p>
+<h2 id="3-安装Miniforge版本Python（Arm）"><a href="#3-安装Miniforge版本Python（Arm）" class="headerlink" title="3. 安装Miniforge版本Python（Arm）"></a>3. 安装Miniforge版本Python（Arm）</h2><ol>
+<li>进入<code>Miniforge</code>的<code>Github</code>页面，选择<code>osx_arm</code>版本（即对<code>M1</code>支持，最好选择倒数第三个压缩包），将会下载一个名为<a href="https://link.zhihu.com/?target=http://miniforge3-macosx-arm64.sh/">Miniforge3-MacOSX-arm64.sh</a>的脚本文件。</li>
+<li>运行下面的命令：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">chmod +x Miniforge3-MacOSX-arm64.sh</span><br><span class="line">bash Miniforge3-MacOSX-arm64.sh</span><br><span class="line">nano ~/.zshrc</span><br><span class="line"><span class="comment"># 加入这行 export PATH=~/miniforge3/bin:$PATH</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+打完收工。</li>
+</ol>
+<h2 id="4-安装tensroflow"><a href="#4-安装tensroflow" class="headerlink" title="4. 安装tensroflow"></a>4. 安装tensroflow</h2><ol>
+<li><p>创建<code>conda</code>虚拟环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">conda create --name tf24</span><br><span class="line">conda activate tf24</span><br><span class="line">conda install -y python==3.8.6</span><br><span class="line">conda install -y pandas matplotlib scikit-learn jupyterlab</span><br></pre></td></tr></table></figure></li>
+<li><p>安装数据科学包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -y pandas matplotlib scikit-learn jupyterlab</span><br></pre></td></tr></table></figure></li>
+<li><p>安装<code>Apple</code>版<code>TensorFlow</code>，先下载，推荐<code>wget</code>方式下载：<br><a href="https://link.zhihu.com/?target=https://github.com/apple/tensorflow_macos">Apple TensorFlow下载链接</a></p>
+</li>
+<li><p>进入下载的压缩包文件夹，这里因下载的方式不同，文件夹位置有所不同，仅供参考</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd tensorflow_macos/arm64</span><br></pre></td></tr></table></figure></li>
+<li><p>在<code>tf24</code>环境下使用这些命令：</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">conda activate tf24</span><br><span class="line"><span class="comment"># 直接运行</span></span><br><span class="line">pip install --force pip==20.2.4 wheel setuptools cached-property six</span><br><span class="line"><span class="comment"># 注意⚠️，这里需要根据自己下载的版本替换包名（这里的版本是0.1a1）</span></span><br><span class="line">pip install --upgrade --no-dependencies --force numpy-1.18.5-cp38-cp38-macosx_11_0_arm64.whl grpcio-1.33.2-cp38-cp38-macosx_11_0_arm64.whl h5py-2.10.0-cp38-cp38-macosx_11_0_arm64.whl tensorflow_addons-0.11.2+mlcompute-cp38-cp38-macosx_11_0_arm64.whl</span><br><span class="line"><span class="comment"># 直接运行</span></span><br><span class="line">pip install absl-py astunparse flatbuffers gast google_pasta keras_preprocessing opt_einsum protobuf tensorflow_estimator termcolor typing_extensions wrapt wheel tensorboard typeguard</span><br><span class="line"><span class="comment"># 包名替换后运行（这里的版本是0.1a1）</span></span><br><span class="line">pip install --upgrade --force --no-dependencies tensorflow_macos-0.1a1-cp38-cp38-macosx_11_0_arm64.whl</span><br></pre></td></tr></table></figure>
+<p>大功告成，愉快地做一个代码狗吧。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+              <a href="/tags/M1/" rel="tag"># M1</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/17/%E3%80%8C%E5%A4%87%E4%BB%BD%E3%80%8D%E5%A6%82%E4%BD%95%E5%9C%A8M1%E7%9A%84%E7%94%B5%E8%84%91%E4%B8%8A%E5%AE%89%E8%A3%85PyTorch/" rel="prev" title="「备份」如何在M1的电脑上安装PyTorch">
+      <i class="fa fa-chevron-left"></i> 「备份」如何在M1的电脑上安装PyTorch
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/17/%E3%80%8C%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E3%80%8D%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E8%A6%81%E5%81%9A%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" rel="next" title="「学习路径规划」如果你想要做强化学习">
+      「学习路径规划」如果你想要做强化学习 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85%E7%BB%88%E7%AB%AF%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">1. 安装终端命令行工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%AE%89%E8%A3%85homebrew%EF%BC%8C%E6%9C%80%E5%A5%BD%E5%85%B1%E5%AD%98arm%E7%89%88%E8%B7%9Fx86%E7%89%88"><span class="nav-number">2.</span> <span class="nav-text">2. 安装homebrew，最好共存arm版跟x86版</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0-git%E5%AE%89%E8%A3%85"><span class="nav-number">2.1.</span> <span class="nav-text">2.0 git安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-arm%E7%89%88%E5%AE%89%E8%A3%85"><span class="nav-number">2.2.</span> <span class="nav-text">2.1 arm版安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-x86%E7%89%88homebrew%E5%AE%89%E8%A3%85"><span class="nav-number">2.3.</span> <span class="nav-text">2.2 x86版homebrew安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E5%85%B1%E5%AD%98"><span class="nav-number">2.4.</span> <span class="nav-text">2.3 共存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AE%89%E8%A3%85Miniforge%E7%89%88%E6%9C%ACPython%EF%BC%88Arm%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">3. 安装Miniforge版本Python（Arm）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%AE%89%E8%A3%85tensroflow"><span class="nav-number">4.</span> <span class="nav-text">4. 安装tensroflow</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="12345678class Learn&amp;#123;    public static void main(String[] args)&amp;#123;        try:            System.out.println(&quot;Study Hard.&quot;);        catch:            System.exit(-1);    &amp;#125;&amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「学习路径规划」如果你想要做强化学习">
+<meta property="og:url" content="http://example.com/2021/05/17/%E3%80%8C%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E3%80%8D%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E8%A6%81%E5%81%9A%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="12345678class Learn&amp;#123;    public static void main(String[] args)&amp;#123;        try:            System.out.println(&quot;Study Hard.&quot;);        catch:            System.exit(-1);    &amp;#125;&amp;#125;">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-05-17T03:50:38.000Z">
+<meta property="article:modified_time" content="2021-05-17T03:53:21.797Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="RL">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/05/17/%E3%80%8C%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E3%80%8D%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E8%A6%81%E5%81%9A%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>「学习路径规划」如果你想要做强化学习 | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/05/17/%E3%80%8C%E5%AD%A6%E4%B9%A0%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E3%80%8D%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E8%A6%81%E5%81%9A%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「学习路径规划」如果你想要做强化学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-05-17 11:50:38 / Modified: 11:53:21" itemprop="dateCreated datePublished" datetime="2021-05-17T11:50:38+08:00">2021-05-17</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Learn</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            System.out.println(<span class="string">&quot;Study Hard.&quot;</span>);</span><br><span class="line">        <span class="keyword">catch</span>:</span><br><span class="line">            System.exit(-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="1-扯点闲话"><a href="#1-扯点闲话" class="headerlink" title="1. 扯点闲话"></a>1. 扯点闲话</h2><p>有时候也会想，像我这样半路入行的，该怎么快速立足。能够在几个月后找到一份实习，想来想去也没想好到底怎么才能做到。</p>
+<p>索性不去想了，找一个朋友一块，定期运动，其余的时间自己一个人学一学，不行了就在网站上吐槽一下，再来这个博客写些文章。</p>
+<p><del>这样也好像不太好，一个记录学习打卡的网站倒成了一个吐槽垃圾站。</del></p>
+<h2 id="2-进入正题"><a href="#2-进入正题" class="headerlink" title="2. 进入正题"></a>2. 进入正题</h2><p>闲话少说，私货少夹带。进入正题，该如何规划自己的学习路径？</p>
+<h3 id="2-1-刷题，编程语言熟练度"><a href="#2-1-刷题，编程语言熟练度" class="headerlink" title="2.1 刷题，编程语言熟练度"></a>2.1 刷题，编程语言熟练度</h3><p>假如我要进入「强化学习」的领域，首先按照招聘要求，我需要精通一门语言。怎么算是精通呢？好在这个问题不用我担心，只要刷题就好。比如LeetCode的普通题，刷到至少200，以及剑斩Offer和企业考核题，都是起码两遍往上。</p>
+<p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/">LeetCode主站，一起来刷题呀～有MySQL的题嗷，学数分的小伙伴一块吧。</a></p>
+<p><a target="_blank" rel="noopener" href="https://zeksay.cn/?id=42">这里是我的刷题笔记记录的地方，有兴趣可以去看看～</a></p>
+<h3 id="2-2-论文，解锁领域基本算法"><a href="#2-2-论文，解锁领域基本算法" class="headerlink" title="2.2 论文，解锁领域基本算法"></a>2.2 论文，解锁领域基本算法</h3><p>这就是硬骨头了，得花很多时间去看领域内的论文，至少基础的相关算法得清楚，这部分好在找到了一个学习路径的参考。要学的基本也都清楚了，像是PG、QL、DQL、AC、A2C、DDPG、PPO、TRPO以及一些其他的前沿论文。</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/thu-ml/tianshou">论文参考下载</a></p>
+<p>这些论文我都已经通过大佬的指点，找到了文章，接下来要花的就是时间以及精力了。</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104224859">优质课程以及资料</a></p>
+<h3 id="2-3-框架，算法得实现才有用武之地"><a href="#2-3-框架，算法得实现才有用武之地" class="headerlink" title="2.3 框架，算法得实现才有用武之地"></a>2.3 框架，算法得实现才有用武之地</h3><p>强化学习很依赖「神经网络」，也就是很需要实战能力，懂框架的理论知识是很重要的，但如果无法快速实现，那么真的一点用也没有。所以我要做的就是将上面论文里头的算法给复现就好，虽然我觉得挑战很大。</p>
+<p>这里就没有链接了，但是主流框架有两种，PyTorch以及TensorFlow，虽然业界应用的比较广，也比较稳定的是tensroflow，但是我觉得Torch简单易上手，加上传闻的Tensorflow API混乱的问题，加上业界大公司都在改造做自己的tensroflow框架，我还是学torch吧。</p>
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/350445991">关于tensorflow与torch的讨论。</a></p>
+<h3 id="2-4-实战，应用到实际问题"><a href="#2-4-实战，应用到实际问题" class="headerlink" title="2.4 实战，应用到实际问题"></a>2.4 实战，应用到实际问题</h3><p>这一部分大概也是最重要的，最终目标。如果可以，去做做比赛，将模型实际地用一用。这样一是不仅局限于那些游戏benchmark，二是可以发现很多以游戏为目标的时候发现不了的问题，毕竟实际生活问题还是很复杂，很需要转换思维的。</p>
+<p>啊，说起来，这个我好希望能有大佬带我做比赛啊，我可以不水的，求求大佬把我带去吧。。。</p>
+<p>要实战的另一个目的也是为了能找实习的时候成为简历上的一块砖，敲开面试的大门。就算受伤到进不去，至少我可以有一定的概率进去看看风光。啊，我tm在说什么，算了，洗洗睡了。</p>
+<h2 id="3-调整心情，调整状态"><a href="#3-调整心情，调整状态" class="headerlink" title="3. 调整心情，调整状态"></a>3. 调整心情，调整状态</h2><p>我觉得在学习的过程中，能把自己的心态跟身体状态都调整好，绝对事半功倍。所以，再次呼吁小伙伴们，带我锻炼吧，我很菜的，可以衬托你，我还不帅，不高，没钱，不觉得我是个完美的伴嘛。。。</p>
+<h2 id="4-大佬建议"><a href="#4-大佬建议" class="headerlink" title="4. 大佬建议"></a>4. 大佬建议</h2><p>问：</p>
+<ol>
+<li><p>除了那些著名的算法，如PPO、PG、AC、DQN、DDQG及所有在天授项目中提到的paper，还应该看些什么？overfitting相关的？亦或者其他的？</p>
+</li>
+<li><p>是否也像是其他的领域一般，需要对Linux比较熟悉？</p>
+</li>
+<li><p>除了看完第1条所提到的论文之外，我还需要学些什么？Java或者Python的基础语法？MySQL？</p>
+</li>
+</ol>
+<p>以上基于我目前研一，已学Python、Java，每天在LeetCode刷题，南大工程管理学院工业工程跨专业自学，基础为研一上学期的强化学习课程，初步了解并在简单的Maze Navigation实例上跑过QL、PG、AC、DDPG，目前使用的框架是Torch，打算用Google的Colab。</p>
+<p>如果想进入工业界该如何规划呢？</p>
+<p>答：</p>
+<p>1.看什么相关的主要跟你的研究方向、研究兴趣相关，强化还是有很多研究方向的，比如稀疏奖励、稳定性、安全性、数据效率、过估计问题、局部可观测问题等等<br>2.linux熟悉的话是加分项，并非必须熟练<br>3.语言着重学python就好，c++看个人实力与兴趣，Java和MySQL完全没必要</p>
+<p>进入工业界的话：</p>
+<ul>
+<li>研究员岗位请打好数学基础，掌握压缩映射、凸优化、约束优化、置信域优化、矩阵论概率论等算法原理；</li>
+<li>工程师岗位请充分<code>实践代码能力</code>，尽量在<code>实验中应用分布式技术</code>，了解<code>分布式RL的原理</code>，同时需<code>对算法的细节</code>有深入了解，知道<code>如何提升算法性能</code>，而非<code>仅仅在网络结构、训练模式上的改动</code>。</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>看论文时研究的方向需要确定，强化学习也有很多细分领域；</li>
+<li>如果可行，Linux是加分项；</li>
+<li>语言着重Python，可学C++；</li>
+<li>进入工业界，充分实践代码能力，学习分布式技术，分布式RL的原理，对算法的细节有深入了解，知晓如何提升算法性能，而非网络结构、训练模式上的改动。</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/RL/" rel="tag"># RL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/17/%E3%80%8C%E5%A4%87%E4%BB%BD%E3%80%8D%E5%A6%82%E4%BD%95%E5%9C%A8M1%E7%9A%84Mac%E4%B8%8A%E9%85%8D%E7%BD%AE%E5%AE%89%E8%A3%85TensorFlow/" rel="prev" title="「备份」如何在M1的Mac上配置安装TensorFlow">
+      <i class="fa fa-chevron-left"></i> 「备份」如何在M1的Mac上配置安装TensorFlow
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/05/17/%E4%B8%AA%E4%BA%BA%E7%AE%80%E4%BB%8B/" rel="next" title="个人简介">
+      个人简介 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%89%AF%E7%82%B9%E9%97%B2%E8%AF%9D"><span class="nav-number">1.</span> <span class="nav-text">1. 扯点闲话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E8%BF%9B%E5%85%A5%E6%AD%A3%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">2. 进入正题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-%E5%88%B7%E9%A2%98%EF%BC%8C%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80%E7%86%9F%E7%BB%83%E5%BA%A6"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 刷题，编程语言熟练度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-%E8%AE%BA%E6%96%87%EF%BC%8C%E8%A7%A3%E9%94%81%E9%A2%86%E5%9F%9F%E5%9F%BA%E6%9C%AC%E7%AE%97%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 论文，解锁领域基本算法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E6%A1%86%E6%9E%B6%EF%BC%8C%E7%AE%97%E6%B3%95%E5%BE%97%E5%AE%9E%E7%8E%B0%E6%89%8D%E6%9C%89%E7%94%A8%E6%AD%A6%E4%B9%8B%E5%9C%B0"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 框架，算法得实现才有用武之地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-%E5%AE%9E%E6%88%98%EF%BC%8C%E5%BA%94%E7%94%A8%E5%88%B0%E5%AE%9E%E9%99%85%E9%97%AE%E9%A2%98"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 实战，应用到实际问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E8%B0%83%E6%95%B4%E5%BF%83%E6%83%85%EF%BC%8C%E8%B0%83%E6%95%B4%E7%8A%B6%E6%80%81"><span class="nav-number">3.</span> <span class="nav-text">3. 调整心情，调整状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%A4%A7%E4%BD%AC%E5%BB%BA%E8%AE%AE"><span class="nav-number">4.</span> <span class="nav-text">4. 大佬建议</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
