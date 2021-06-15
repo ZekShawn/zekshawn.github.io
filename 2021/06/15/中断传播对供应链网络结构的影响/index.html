@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="说起来很有意思，这篇论文是因为看到agent关键词才开始读的，但是理了一遍逻辑之后我觉得逻辑链不是很能站得住脚。本来也不是很想把这个写下来，因为这会显得我只读了这么些东西（虽然的确是。 但是扛不住太早睡不甘心+实在是进度偏慢，再不好好读论文形成某种模式消化一下，估计导师要被我给气死了（还得发钱，这研究生养的实在是不值得，hhhhh。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="中断在供应链网络中的传播">
+<meta property="og:url" content="http://example.com/2021/06/15/%E4%B8%AD%E6%96%AD%E4%BC%A0%E6%92%AD%E5%AF%B9%E4%BE%9B%E5%BA%94%E9%93%BE%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E7%9A%84%E5%BD%B1%E5%93%8D/index.html">
+<meta property="og:site_name" content="Zek Shawn">
+<meta property="og:description" content="说起来很有意思，这篇论文是因为看到agent关键词才开始读的，但是理了一遍逻辑之后我觉得逻辑链不是很能站得住脚。本来也不是很想把这个写下来，因为这会显得我只读了这么些东西（虽然的确是。 但是扛不住太早睡不甘心+实在是进度偏慢，再不好好读论文形成某种模式消化一下，估计导师要被我给气死了（还得发钱，这研究生养的实在是不值得，hhhhh。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-06-15T02:51:13.000Z">
+<meta property="article:modified_time" content="2021-06-15T14:55:46.601Z">
+<meta property="article:author" content="Zek Shawn">
+<meta property="article:tag" content="中断传播">
+<meta property="article:tag" content="供应链网络">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/06/15/%E4%B8%AD%E6%96%AD%E4%BC%A0%E6%92%AD%E5%AF%B9%E4%BE%9B%E5%BA%94%E9%93%BE%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E7%9A%84%E5%BD%B1%E5%93%8D/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>中断在供应链网络中的传播 | Zek Shawn</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Zek Shawn</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/06/15/%E4%B8%AD%E6%96%AD%E4%BC%A0%E6%92%AD%E5%AF%B9%E4%BE%9B%E5%BA%94%E9%93%BE%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84%E7%9A%84%E5%BD%B1%E5%93%8D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Zek Shawn">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zek Shawn">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          中断在供应链网络中的传播
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2021-06-15 10:51:13 / Modified: 22:55:46" itemprop="dateCreated datePublished" datetime="2021-06-15T10:51:13+08:00">2021-06-15</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>说起来很有意思，这篇论文是因为看到agent关键词才开始读的，但是理了一遍逻辑之后我觉得逻辑链不是很能站得住脚。本来也不是很想把这个写下来，因为这会显得我只读了这么些东西（虽然的确是。</p>
+<p>但是扛不住太早睡不甘心+实在是进度偏慢，再不好好读论文形成某种模式消化一下，估计导师要被我给气死了（还得发钱，这研究生养的实在是不值得，hhhhh。</p>
+<span id="more"></span>
+
+<h2 id="中断在供应链网络中的传播"><a href="#中断在供应链网络中的传播" class="headerlink" title="中断在供应链网络中的传播"></a>中断在供应链网络中的传播</h2><p>回到正题，原文名称为：<strong>Ripple effect in the supply chain network: Forward and backward disruption propagation, network health and firm vulnerability</strong>，借助翻译工具可知，这是研究供应链网络的中断传播方式，以及中断如何影响网络健康，企业又是多么脆弱的。下面放一下文章的摘要，当然是翻译成为中文之后的版本，不用担心太多生词不好下嘴：</p>
+<blockquote>
+<p>摘要：局部中断可以通过物流向前和向下传播，并最终影响整个供应链网络（SCN）。这种在实践中大量存在的连锁反应现象，近年来引起了人们的极大兴趣。此外，在COVID-19大流行期间，前向和后向干扰传播成为SCNs的主要应激源，由同时和连续的供应和需求中断触发。然而，目前的文献很少关注干扰传播方向的不同影响。本研究通过模拟供应链网络内部企业间简单的互动规则，来检验供应链网络的干扰传播。具体来说，一个基于代理的计算模型被开发来描述供应链中断传播行为。然后，我们进行了多层次的定量分析，探讨了前向和后向干扰传播对网络结构、网络健康和节点脆弱性的影响。我们的研究结果表明，区分前向和后向干扰传播是非常重要的，因为它们在相关的缓解策略以及对网络和单个企业绩效的影响方面是不同的。前向中断传播通常可以通过替代和备用供应来缓解，并对服务于装配角色的公司和供应/装配网络产生更大的影响，而反向干扰传播通常通过灵活的运营和分销得到缓解，对服务于分销角色的企业和分销网络产生更大的影响。进一步分析了干扰传播下双焦点供应网络的投资策略。我们提供建议，以促进决策和总结重要的管理意义。</p>
+</blockquote>
+<p>看到摘要，可能一些词让你摸不着头脑，你会说，我不是研究供应链的，这些描述我完全不懂。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">中断、传播、供应链网络、干扰、代理、前向、后向、节点脆弱性、网络健康、双焦点；</span><br></pre></td></tr></table></figure>
+
+<p>我们这就解释解释上面的一些词，让你摸的着你的头脑。</p>
+<h2 id="（也许专业）名词解析"><a href="#（也许专业）名词解析" class="headerlink" title="（也许专业）名词解析"></a>（也许专业）名词解析</h2><ul>
+<li>中断：指的是供应链中某一个公司或者企业因为各种原因无法向供应链的上级或下级提供既定的服务；</li>
+<li>传播：指的是因为某一个供应链上的公司中断，导致供应链上的其他公司中断；</li>
+<li>供应链网络：由各种复杂的供应关系交织的供应链结构；</li>
+<li>干扰：这可能是我翻译的问题，应当与中断同义；</li>
+<li>代理：从英文agent翻译过来，指的是代替实体对象的一个仿真对象；</li>
+<li>前向：指的是正向，也就是供-制-分-销-顾的方向；</li>
+<li>后向：顾名思义，上述链的反向；</li>
+<li>节点脆弱性：节点指的是供应链拓扑结构中的一个点，拓扑指的是无关形状大小只跟相对位置有关的结构，脆弱性不需要解释了吧；</li>
+<li>网络健康：还未中断的节点数量（作者自己定义的指标）；</li>
+<li>双焦点：其实就是双中心，ego网络的中心，什么是ego网络？<a target="_blank" rel="noopener" href="https://www.cnblogs.com/guolei/p/3388123.html">请看这里</a>。</li>
+</ul>
+<h2 id="定义了哪些指标？"><a href="#定义了哪些指标？" class="headerlink" title="定义了哪些指标？"></a>定义了哪些指标？</h2><p>A. 在看定义指标前，我们需要思考，中断传播跟哪些因素有关系？</p>
+<p>答：时间、方向、传播能够完成的条件；首先，中断从一个节点传播到另一个节点需要时间；其次，中断从一个节点传播到另一个节点需要有一条路径；中断传播不是确定的行为，而是一个概率值；</p>
+<p>B. 论文基于以上因素，定义了什么指标？以及哪些辅助计算指标？</p>
+<p>答：状态转移概率，一个节点从<code>t</code>期到<code>t+1</code>期由从正常转向中断或者中断转向正常的概率；分别为$p_{i, HD}^t$与$p_{i,HD}^t$，两者虽然在符号上一致，但是计算方式与逻辑不相同。$p_{i,HD}=1-\prod \limits_{k\in DS(i)}(1-FR_{ki}^i)·\prod \limits_{j\in DC(i)}(1-BR_{ij}^t)$，$p_{i,HD}=RC_i^t \prod \limits_{k\in DS(i)}(1-FR_{ki}^i)·\prod \limits_{j\in DC(i)}(1-BR_{ij}^t)$。</p>
+<p>C. 基于什么规则传播？评价指标是什么？怎么计算？</p>
+<p>答：无限期重复，根据上面的转移方程，确定FR、BR、RC后计算上述概率更新供应链网络；评价指标是作者定义的稳定期的健康度与稳定所需要的期数，一个用于评价网络的健康度、一个用于评价网络是否足够鲁棒可以快速收敛（好吧，这里是我瞎扯的，指标确实有，定义的初衷是什么不确定）；取稳定后的900轮（文章采用的措施）取平均值。</p>
+<p>D. 网络结构呢？如何排除结构对中断的影响？</p>
+<p>答：网络结构使用车企丰田与本田作为焦点公司（中心公司），这两者的供应链结构均比较复杂；同时加入随机生成同样节点数的网络结构作为对比，查看网络结构是否对传播存在影响；</p>
+<p>E. 如何进行实验？什么是决策变量？什么是辅助变量？</p>
+<p>答：控制RC、BR、FR三个值，查看并对比网络健康度的变化情况；决策变量是投资比例（在后面的实验部分）；除了决策变量都是辅助变量；</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>太晚了，我先睡，有时间再补上。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%B8%AD%E6%96%AD%E4%BC%A0%E6%92%AD/" rel="tag"># 中断传播</a>
+              <a href="/tags/%E4%BE%9B%E5%BA%94%E9%93%BE%E7%BD%91%E7%BB%9C/" rel="tag"># 供应链网络</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/05/19/%E4%B8%80%E5%A4%A9%E5%88%B7%E5%AE%8CLeetCode%E4%B8%8A%E7%9A%84MySQL%E9%A2%98/" rel="prev" title="一天刷完LeetCode上的MySQL题">
+      <i class="fa fa-chevron-left"></i> 一天刷完LeetCode上的MySQL题
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E5%9C%A8%E4%BE%9B%E5%BA%94%E9%93%BE%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84%E4%BC%A0%E6%92%AD"><span class="nav-number">1.</span> <span class="nav-text">中断在供应链网络中的传播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EF%BC%88%E4%B9%9F%E8%AE%B8%E4%B8%93%E4%B8%9A%EF%BC%89%E5%90%8D%E8%AF%8D%E8%A7%A3%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">（也许专业）名词解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E4%BA%86%E5%93%AA%E4%BA%9B%E6%8C%87%E6%A0%87%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">定义了哪些指标？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA"><span class="nav-number">4.</span> <span class="nav-text">结论</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Zek Shawn</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ZekShawn" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ZekShawn" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZekShawn</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
